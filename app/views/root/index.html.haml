@@ -1,2 +1,51 @@
-%h1 Root#index
-%p Find me in app/views/root/index.html.haml
+%style
+  == #content { text-align: center; padding-top: 120px; }
+  == h3 { font-size: 18pt; margin: 30px; }
+  == .goal { display: inline-block; width: 10em; border-bottom: 1px solid black; }
+  == .goal_option { display: none; }
+  == p { padding: 6px 0; }
+
+:javascript
+  function displayGoal(index) {
+    var goalOptions = $('.goal_option');         
+    $('.goal').html(goalOptions.eq(index % goalOptions.length).html());
+    setTimeout(function() {
+      displayGoal(index+1);
+    }, 2500);
+  }
+
+  $(function() { displayGoal(0) });
+
+#content
+  %h1= image_tag 'logo.jpg', :alt => "secret goals"
+
+  %h3
+    I want to
+    %span.goal
+
+    %span.goal_option quit smoking
+    %span.goal_option run a marathon
+    %span.goal_option learn to play guitar
+    %span.goal_option lose weight
+    %span.goal_option listen better
+    %span.goal_option learn to golf
+    %span.goal_option dunk a basketball
+    %span.goal_option climb Mt. Everest
+    %span.goal_option help more charities
+    %span.goal_option write a song
+    %span.goal_option perform live
+    %span.goal_option be a better father
+    %span.goal_option quit my job
+    %span.goal_option start a company
+    %span.goal_option get into college
+    %span.goal_option not be so stressed
+    %span.goal_option break a world record
+    %span.goal_option learn to salsa
+    %span.goal_option get over my fears
+    %span.goal_option get a better job
+    %span.goal_option not worry so much
+    %span.goal_option be more patient
+
+  %p Research shows that keeping your goals a secret may be the best way to achieve them.
+  %p Secret Goals is an anonymous community built to help you achieve your goals while keeping them a secret.
+
