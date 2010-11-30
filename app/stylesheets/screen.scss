@@ -11,3 +11,18 @@
 @import "partials/page";
 @import "partials/form";
 @import "partials/two_col";
+
+
+#content {
+  @include container;
+}
+
+.notice {
+  padding: 30px;
+  background-color: #fffa9c;
+  border: 1px solid #ccc;
+  text-align: center;
+  margin: 30px;
+}
+
+

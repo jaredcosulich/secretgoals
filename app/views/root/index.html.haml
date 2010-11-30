@@ -1,9 +1,11 @@
 %style
-  == #content { text-align: center; padding-top: 120px; }
+  == #landing_content { text-align: center; padding-top: 120px; }
   == h3 { font-size: 18pt; margin: 30px; }
   == .goal { display: inline-block; width: 10em; border-bottom: 1px solid black; }
   == .goal_option { display: none; }
   == p { padding: 6px 0; }
+  == form { margin-top: 45px; }
+  == form, input {  font-size: 18pt; }
 
 :javascript
   function displayGoal(index) {
@@ -16,7 +18,7 @@
 
   $(function() { displayGoal(0) });
 
-#content
+#landing_content
   %h1= image_tag 'logo.jpg', :alt => "secret goals"
 
   %h3
@@ -49,3 +51,7 @@
   %p Research shows that keeping your goals a secret may be the best way to achieve them.
   %p Secret Goals is an anonymous community built to help you achieve your goals while keeping them a secret.
 
+  = form_for :beta_request, :url => beta_requests_path do |f|
+    = f.label :email, "Your Email"
+    = f.text_field :email
+    = f.submit "Get Notified", :class => "button positive"
