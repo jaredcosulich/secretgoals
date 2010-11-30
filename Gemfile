@@ -1,18 +1,22 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
-gem 'haml', '~>3.0.18'
+gem 'rails', '~>3.0.3'
 gem 'pg'
 
-gem 'devise', '1.1.2'
+gem 'haml'
+gem 'haml-rails'
+gem 'compass'
 
-gem 'hoptoad_notifier', '2.3.8'
-gem 'newrelic_rpm', '2.13.2'
+gem 'devise'
+
+gem 'hoptoad_notifier'
+gem 'newrelic_rpm'
 gem 'heroku'
 
 group :development do
-  gem 'spork'
+  gem 'hpricot'
   gem 'mongrel'
+  gem 'spork'
 end
 
 group :test, :development do
@@ -20,6 +24,6 @@ group :test, :development do
   gem 'ruby-debug-ide'
   gem 'ruby-debug-base'
   gem 'rspec-rails'
-  gem 'factory_girl_rails', '1.0'
-  gem 'webrat', '0.7.1'
+  gem 'factory_girl_rails'
+#  gem 'webrat', '0.7.1'
 end

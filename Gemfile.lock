@@ -32,11 +32,13 @@ GEM
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
     cgi_multipart_eof_fix (2.5.0)
+    compass (0.10.6)
+      haml (>= 3.0.4)
     configuration (1.2.0)
     daemons (1.1.0)
-    devise (1.1.2)
+    devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
-      warden (~> 0.10.7)
+      warden (~> 1.0.2)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -47,12 +49,19 @@ GEM
     fastthread (1.0.7)
     gem_plugin (0.2.3)
     haml (3.0.24)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     heroku (1.14.5)
       json_pure (>= 1.2.0, < 1.5.0)
       launchy (~> 0.3.2)
       rest-client (>= 1.4.0, < 1.7.0)
-    hoptoad_notifier (2.3.8)
+    hoptoad_notifier (2.3.12)
       activesupport
+      builder
+    hpricot (0.8.3)
     i18n (0.5.0)
     jasmine (1.0.1.1)
       json_pure (>= 1.4.3)
@@ -77,8 +86,7 @@ GEM
       daemons (>= 1.0.3)
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
-    newrelic_rpm (2.13.2)
-    nokogiri (1.4.4)
+    newrelic_rpm (2.13.3)
     pg (0.9.0)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -125,29 +133,27 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
-    warden (0.10.7)
+    warden (1.0.2)
       rack (>= 1.0.0)
-    webrat (0.7.1)
-      nokogiri (>= 1.2.0)
-      rack (>= 1.0)
-      rack-test (>= 0.5.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  devise (= 1.1.2)
-  factory_girl_rails (= 1.0)
-  haml (~> 3.0.18)
+  compass
+  devise
+  factory_girl_rails
+  haml
+  haml-rails
   heroku
-  hoptoad_notifier (= 2.3.8)
+  hoptoad_notifier
+  hpricot
   jasmine
   mongrel
-  newrelic_rpm (= 2.13.2)
+  newrelic_rpm
   pg
-  rails (= 3.0.3)
+  rails (~> 3.0.3)
   rspec-rails
   ruby-debug-base
   ruby-debug-ide
   spork
-  webrat (= 0.7.1)
