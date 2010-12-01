@@ -6,6 +6,7 @@
   == p { padding: 6px 0; }
   == form { margin-top: 45px; }
   == form, input {  font-size: 18pt; }
+  == form .button {  vertical-align: bottom; }
 
 :javascript
   function displayGoal(index) {
@@ -54,4 +55,4 @@
   = form_for :beta_request, :url => beta_requests_path do |f|
     = f.label :email, "Your Email"
     = f.text_field :email
-    = f.submit "Get Notified", :class => "button positive"
+    = image_submit_tag "buttons/get_notified.jpg", :class => "button"
