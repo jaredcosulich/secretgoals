@@ -1,7 +1,12 @@
 Secretgoals::Application.routes.draw do
+
+  devise_for :users
+
   root :to => "root#index"
   resources :beta_requests
 
+  devise_for :admins
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
