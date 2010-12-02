@@ -6,6 +6,10 @@ Secretgoals::Application.routes.draw do
   resources :beta_requests
 
   devise_for :admins
+  namespace :admin do
+    root :to => "admin#index"
+    resources :blueprints
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
