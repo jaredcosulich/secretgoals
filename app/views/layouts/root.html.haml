@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title Secret Goals
+    = csrf_meta_tag
+    = favicon_link_tag
+    = stylesheet_link_tag 'compiled/root.css', :media => 'screen, projection, print'
+    = javascript_include_tag :defaults
+  %body
+    #content
+      #flash
+        - if flash[:notice].present?
+          .notice
+            = flash[:notice]
+        - if flash[:alert].present?
+          .alert
+            = flash[:alert]
+      = yield
+
+

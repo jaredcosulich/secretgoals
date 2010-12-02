@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Secretgoals
+    %title Secret Goals
     = csrf_meta_tag
     = favicon_link_tag
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
@@ -10,7 +10,18 @@
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
     = javascript_include_tag :defaults
   %body
-    #content
+    #header
+      .content
+        %h1 secret goals
+    #nav_bar
+      .content
+        .new_goal
+          %h3
+            I want to
+            = text_field_tag "goal"
+        .navigation
+          = link_to("My Goals", "")
+    #content.content
       #flash
         - if flash[:notice].present?
           .notice
@@ -19,4 +30,7 @@
           .alert
             = flash[:alert]
       = yield
+    #footer
+      .content
+        Footer
 

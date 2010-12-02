@@ -3,6 +3,8 @@ Secretgoals::Application.routes.draw do
   devise_for :users
 
   root :to => "root#index"
+  resources :home
+
   resources :beta_requests
 
   devise_for :admins

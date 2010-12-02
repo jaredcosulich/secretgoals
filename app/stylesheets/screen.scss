@@ -1,23 +1,73 @@
-// This import applies a global reset to any page that imports this stylesheet.
 @import "blueprint/reset";
-
-// To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
-
-// Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
+@import "blueprint/fancy-type";
 
-// Combine the partials into a single screen stylesheet.
-@import "partials/page";
-@import "partials/form";
-@import "partials/two_col";
+// Import the non-default scaffolding module to help us get started.
+@import "blueprint/scaffolding";
+// Remove the scaffolding when you're ready to start doing visual design.
+// Or leave it in if you're happy with how blueprint looks out-of-the-box
+@include blueprint-scaffolding("body.bp");
 
+$blue: #081736;
 
-#content {
+body {
+  @include blueprint-typography(true);
+  @include blueprint-utilities;
+  @include blueprint-debug;
+  @include blueprint-interaction;
+  font-size: 900%;
+}
+
+form {
+  @include blueprint-form;
+}
+
+.content {
   @include container;
 }
 
-.notice {
+#header {
+  background-color: #A19C99;
+  color: $blue;
+  padding-top: 40px;
+  h1 {
+    margin-bottom: 3px;
+  }
+}
+
+#nav_bar {
+  background-color: $blue;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  .new_goal {
+    @include column(21);
+    h3 {
+      color: white;
+      margin-bottom: 0;
+    }
+  }
+  .navigation {
+    @include column(3, true);
+    float: right;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+
+
+.main {
+  @include column(16);
+}
+
+.sidebar {
+  @include column(8, true);
+}
+
+.notice, .alert {
   padding: 30px;
   background-color: #fffa9c;
   border: 1px solid #ccc;
