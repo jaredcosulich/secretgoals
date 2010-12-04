@@ -4,8 +4,13 @@ Secretgoals::Application.routes.draw do
 
   root :to => "root#index"
   resources :home
+  resources :register
 
   resources :beta_requests
+
+  resource :me do
+    resources :goals
+  end
 
   devise_for :admins
   namespace :admin do

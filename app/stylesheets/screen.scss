@@ -10,13 +10,14 @@
 @include blueprint-scaffolding("body.bp");
 
 $blue: #081736;
+$grey: #555C6F;
 
 body {
   @include blueprint-typography(true);
   @include blueprint-utilities;
   @include blueprint-debug;
   @include blueprint-interaction;
-  font-size: 900%;
+  font-size: 90%;
 }
 
 form {
@@ -29,26 +30,54 @@ form {
 
 #header {
   background-color: #A19C99;
-  color: $blue;
-  padding-top: 40px;
+  padding-top: 2.5em;
   h1 {
     margin-bottom: 3px;
+    color: $blue;
+  }
+  .research {
+    color: $blue;
+    float: right;
+    margin-top: 2em;
+    a {
+      color: white;
+      text-decoration: none;
+    }
   }
 }
 
 #nav_bar {
   background-color: $blue;
-  padding: 10px 0;
+  line-height: 40px;
   margin-bottom: 10px;
   .new_goal {
+    vertical-align: middle;
     @include column(21);
     h3 {
+      line-height: 40px;
       color: white;
-      margin-bottom: 0;
+      display: inline;
+      padding: 0;
+    }
+    input {
+      font-size: 14pt;
+      @include column(6);
+      float: none;
+      color: $grey;
+      padding: 0;
+    }
+    .go_goal {
+      line-height: 40px;
+      background-color: $grey;
+      float: none;
+      color: white;
+      padding: 2px 12px;
+      text-decoration: none;
     }
   }
   .navigation {
     @include column(3, true);
+    text-align: right;
     float: right;
     a {
       color: white;
@@ -74,5 +103,3 @@ form {
   text-align: center;
   margin: 30px;
 }
-
-

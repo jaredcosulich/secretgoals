@@ -1,0 +1,11 @@
+= form_for :register do |f|
+  = f.fields_for :user do |uf|
+    = uf.label :email
+    = uf.text_field :email
+    = uf.label :password
+    = uf.text_field :password
+  = f.fields_for :goal do |gf|
+    = gf.label :title, "I want to"
+    = gf.text_field :title, :value => params[:goal]
+
+  = f.submit "Get Started"
