@@ -1,11 +1,16 @@
 = form_for :register do |f|
   = f.fields_for :user do |uf|
-    = uf.label :email
-    = uf.text_field :email
-    = uf.label :password
-    = uf.text_field :password
+    .big_form_fields
+      = uf.label :email
+      = uf.text_field :email, :class => "user_fields"
+    .big_form_fields
+      = uf.label :password
+      = uf.password_field :password, :class => "user_fields"  
   = f.fields_for :goal do |gf|
-    = gf.label :title, "I want to"
-    = gf.text_field :title, :value => params[:goal]
+    .big_form_fields.goal_fields
+      = gf.label :title, "What is your goal?"
+      %br
+      = gf.label :title, "I want to"
+      = gf.text_field :title, :value => params[:goal]
 
   = f.submit "Get Started"
