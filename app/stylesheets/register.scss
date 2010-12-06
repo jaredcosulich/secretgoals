@@ -1,33 +1,36 @@
-form {
-  padding: 12px;
-  background-color: #eee;
-  border: 1px solid #ccc;
-  width: 24em;
-  margin: auto;
-  font-size: 18pt;
-}
+.register_index {
+  form {
+    padding: 12px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    width: 24em;
+    margin: auto;
+    font-size: 18pt;
+  }
 
-.big_form_fields, .big_form_fields input {
-  font-size: 18pt;
-  input.user_fields {
-    width: 22.4em;
+  .big_form_fields, .big_form_fields input {
+    font-size: 18pt;
+    input.user_fields {
+      width: 22.4em;
+      display: block;
+      margin-top: 0;
+    }
+  }
+
+  .goal_fields {
+    padding-top: 30px;
+    input[type='text'] {
+      width: 18em;
+    }
+  }
+
+  #register_submit {
+    margin: 30px auto;
     display: block;
-    margin-top: 0;
+    background-color: $blue;
+    color: white;
+    padding: 12px 0;
+    width: 9em;
+    font-size: 14pt;
   }
-}
-
-.goal_fields {
-  padding-top: 30px;
-  input[type='text'] {
-    width: 18em;
-  }
-}
-
-#register_submit {
-  margin: 30px auto;
-  display: block;
-  background-color: $blue;
-  color: white;
-  padding: 12px;
-  font-size: 14pt;
 }

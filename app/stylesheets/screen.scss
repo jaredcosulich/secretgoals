@@ -10,7 +10,8 @@
 @include blueprint-scaffolding("body.bp");
 
 $blue: #081736;
-$grey: #555C6F;
+$grey: #A19C99;
+$darkgrey: #555C6F;
 
 body {
   @include blueprint-typography(true);
@@ -29,7 +30,7 @@ form {
 }
 
 #header {
-  background-color: #A19C99;
+  background-color: $grey;
   padding-top: 2.5em;
   h1 {
     margin-bottom: 3px;
@@ -63,12 +64,12 @@ form {
       font-size: 14pt;
       @include column(6);
       float: none;
-      color: $grey;
+      color: $darkgrey;
       padding: 0;
     }
     .go_goal {
       line-height: 40px;
-      background-color: $grey;
+      background-color: $darkgrey;
       float: none;
       color: white;
       padding: 2px 12px;
@@ -104,5 +105,7 @@ form {
   margin: 30px;
 }
 
+
 @import "register";
+@import "goals";
 

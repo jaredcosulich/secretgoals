@@ -1,1 +1,22 @@
-= @goal.title
+%h2 My Goals
+
+.goal
+  I want to
+  = @goal.title
+
+.dashboard
+  .dashboard_widget
+    .widget_title Status Update
+    .widget_content
+      Today I'm feeling
+      = form_for :update do |f|
+        = f.label :comment, "Why?"
+        = f.text_area :comment
+  .dashboard_widget
+    .widget_title Progress Tracking
+    .widget_content
+      Progress Bar
+  .dashboard_widget.last_widget
+    .widget_title Account Settings
+    .widget_content
+      Account Summary
