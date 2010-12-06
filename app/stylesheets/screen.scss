@@ -9,6 +9,7 @@
 // Or leave it in if you're happy with how blueprint looks out-of-the-box
 @include blueprint-scaffolding("body.bp");
 
+$lightblue: #081736;
 $blue: #081736;
 $grey: #A19C99;
 $darkgrey: #555C6F;
@@ -105,7 +106,42 @@ form {
   margin: 30px;
 }
 
+#footer {
+  margin-top: 60px;
+  background-color: $grey;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+  a {
+    text-decoration: none;
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+  .right {
+    color: #999;
+    padding: 0 12px;
+    display: block;
+    float: right;
+  }
 
+  #irrational_design {
+    padding-bottom: 60px;
+    overflow: hidden;
+    .irrational_design a {
+      color: #D14334;
+    }
+    .site {
+      float: left;
+      font-size: 9pt;
+      text-align: center;
+      margin: 12px 12px 0 0;
+    }
+  }
+}
+
+
+@import "rangeinput";
 @import "register";
 @import "goals";
 

@@ -1,0 +1,52 @@
+.slider {
+  background-color: $grey;
+  height: 6px;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid #333;
+  width: 100%;
+  margin-top: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow: inset 0 0 8px #000;
+}
+
+.labels {
+  margin-bottom: 10px;
+  overflow: hidden;
+  .bad {
+    float: left;
+  }
+  .good {
+    float: right;
+  }
+}
+
+.progress {
+  height: 9px;
+  background-color: #C5FF00;
+  display: none;
+  opacity: 0.6;
+}
+
+.handle {
+  background-color: $blue;
+  background-image: -webkit-gradient(radial,45% 45%,5,50% 50%,6,from($darkgrey),to($blue));
+  background-image: -moz-radial-gradient(center 45deg, circle closest-side, $darkgrey 0%, $blue 100%);
+  height: 18px;
+  width: 18px;
+  top: -8px;
+  position: absolute;
+  display: block;
+  margin-top: 1px;
+  border: 1px solid #000;
+  cursor: move;
+  -moz-box-shadow: 0 0 6px #000;
+  -webkit-box-shadow: 0 0 6px #000;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+}
+
+.range {
+  display: none;
+}

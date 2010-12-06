@@ -22,10 +22,43 @@
       textarea {
         width: 95%;
         height: 6em;
+        margin-bottom: 0;
       }
       label {
         font-weight: normal;
       }
+      .update_type {
+        font-size: smaller;
+        margin-bottom: 10px;
+        label {
+          margin-right: 10px;
+          vertical-align: middle;
+        }
+      }
+
+    }
+
+
+    .progress_chart {
+      width: 100%;
+      border: 1px solid $blue;
+      height: 110px;
+      margin-bottom: 10px;
+      position: relative;
+      .progress_point {
+        font-size: 30pt;
+        position: absolute;
+      }
+    }
+
+    .progress_post {
+      height: 67px;
+      overflow: auto;      
+    }
+    
+    .progress_links a {
+      font-size: smaller;
+      margin-right: 20px;
     }
   }
 }

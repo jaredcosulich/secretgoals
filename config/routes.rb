@@ -4,6 +4,7 @@ Secretgoals::Application.routes.draw do
 
   root :to => "root#index"
   resources :home
+  resources :about
   resources :register
 
   resources :beta_requests

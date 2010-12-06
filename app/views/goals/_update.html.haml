@@ -1,0 +1,22 @@
+.dashboard_widget
+  .widget_title Status Update
+  .widget_content
+    = form_for :update do |f|
+      Today I'm feeling (about my progress):
+      %input{:name => "update[status]", :type => 'range', :min => 0, :max => 10, :step => 1, :value => 5}
+      .labels
+        .bad
+          0 (terrible)
+        .good
+          (fantastic) 10
+      = f.label :comment, "Why?"
+      = f.text_area :comment
+      .update_type
+        = f.radio_button :type, "update"
+        = f.label :type, "Update"
+        = f.radio_button :type, "milestone"
+        = f.label :type, "Milestone"
+        = f.radio_button :type, "completed"
+        = f.label :type, "Goal Completed"
+
+      = f.submit("Post Update")
