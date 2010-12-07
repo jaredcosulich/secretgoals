@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" onload="initialise(evt)" version="1.1">
+	<script>
+		function initialise(event) {
+			var pos = document.URL.lastIndexOf('?');
+			window.parent.svgManager._registerSVG(
+				(pos == -1 ? null : document.URL.substr(pos + 1)), event.target);
+		}
+	</script>
+</svg>

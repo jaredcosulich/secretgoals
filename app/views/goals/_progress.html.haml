@@ -1,13 +1,23 @@
 .dashboard_widget
   .widget_title Progress Tracking
   .widget_content
-    .progress_chart
+    #progress_chart.canvas
     %h6
       Dec. 12, 2010
       %span{:style =>"font-weight: normal;"} (Rated 8)
     .progress_post
-      I really rocked last night. Not quite a rockstar yet, but definitely feel like I'm getting closer to being a true rockstar!
+      I really rocked last night. Not quite a rockstar yet, but definitely feel like I'm rocking a whole lot more recently.
     .progress_links
-      = link_to("Read more", "")
-      = link_to("6 comments", "")
+      = link_to("Read more (6 comments)", "")
 
+:javascript
+  $(function() {
+    var x = 28;
+    var y = 10;
+    [[40,60], [120,20], [200,40]]
+    $("#progress_chart").append($("<div>").addClass('progress_point').html("*").css("left", 40).css("top", 60).click(function() {console.log('hi');}));
+    $("#progress_chart").drawLine(40+y,60+x,120+y,20+x);
+    $("#progress_chart").append($("<div>").addClass('progress_point').html("*").css("left", 120).css("top", 20));
+    $("#progress_chart").drawLine(120+y,20+x,200+y,40+x);
+    $("#progress_chart").append($("<div>").addClass('progress_point').html("*").css("left", 200).css("top", 40));
+  });

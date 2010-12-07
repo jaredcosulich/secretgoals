@@ -39,15 +39,16 @@
     }
 
 
-    .progress_chart {
+    #progress_chart {
       width: 100%;
       border: 1px solid $blue;
       height: 110px;
       margin-bottom: 10px;
       position: relative;
       .progress_point {
-        font-size: 30pt;
+        font-size: 40pt;
         position: absolute;
+        cursor: pointer;
       }
     }
 
