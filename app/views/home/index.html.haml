@@ -1,13 +1,17 @@
+.tagline
+  %h3 An anonymous community built to help you achieve your goals.
+
 .main
-  %h2 Hi
+  .goals.cloud
+    - @goals.each do |goal|
+      = link_to goal.title, goal_path(goal), :class => goal_cloud_class(goal)
 
   = render "updates/stream"
 
 
 .sidebar
-  %h3 Sidebar
+  %h3 Tags
   %ul
-    %li one
-    %li two
-    %li three
+    - @tags.each do |tag|
+      %li= link_to tag.title, tag_path(tag)
 

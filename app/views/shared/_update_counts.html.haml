@@ -1,12 +1,13 @@
 %ul.aggregate_updates
-  %li
-    %h4= pluralize(goal_count = subject.user_goals.count, "person", "people")
-    = goal_count == 1 ? "has" : "have"
-    = "taken on #{subject_name}."
+  -#
+    %li
+      %h4= pluralize(goal_count = subject.user_goals.count, "person", "people")
+      = goal_count == 1 ? "has" : "have"
+      = "taken on #{subject_name}."
   %li
     %h4= pluralize(good_count = subject.updates.feeling_good.count, "person", "people")
     = good_count == 1 ? "is" : "are"
-    feeling good about their progress.
+    feeling good.
   %li
     %h4= pluralize(ok_count = subject.updates.feeling_ok.count, "person", "people")
     = ok_count == 1 ? "is" : "are"

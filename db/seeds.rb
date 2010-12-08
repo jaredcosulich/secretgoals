@@ -6,12 +6,14 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 def tag(title)
-  Tag.create!(:title => title)
+  Tag.find_or_create_by_title(title)
 end
 
 def goal(title, *tags)
-  goal = Goal.create!(:title => title)
-  tags.each{|tag| goal.tags << tag }
+  unless Goal.where(:title => title).present?
+    goal = Goal.create!(:title => title)
+    tags.each{|tag| goal.tags << tag }
+  end
 end
 
 health    = tag("health")
@@ -44,7 +46,7 @@ goal("dunk a basketball", sports, achievement, skill)
 goal("be a better father", personal_growth, family)
 goal("quit my job", work)
 goal("start a company",  work)
-goal("climb Mt. Everest", achievement, fitness)
+goal("climb Mount Everest", achievement, fitness)
 goal("perform a concert", achievement, music)
 goal("get into college", achievement, education)
 goal("not be so stressed", personal_growth)
