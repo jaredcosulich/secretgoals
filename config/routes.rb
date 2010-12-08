@@ -7,6 +7,7 @@ Secretgoals::Application.routes.draw do
   resources :about
   resources :register
   resources :goals
+  resources :tags
 
   resource :me do
     resources :goals, :controller => "me_goals"
@@ -19,7 +20,7 @@ Secretgoals::Application.routes.draw do
     root :to => "admin#index"
     resources :blueprints
   end
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

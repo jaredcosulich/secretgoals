@@ -9,9 +9,11 @@ Factory.define :user do |f|
 end
 
 Factory.define :goal do |f|
-  f.association :user
 end
 
 Factory.define :tag do |f|
-  
+end
+
+Factory.define :user_goal do |f|
+  f.association :user
 end

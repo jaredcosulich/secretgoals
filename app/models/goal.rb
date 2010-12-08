@@ -1,7 +1,11 @@
 class Goal < ActiveRecord::Base
-  belongs_to :user
-  has_many :updates
-  
-  has_many :goal_tags
-  has_many :tags, :through => :goal_tags    
+  include Permalinkable
+
+  has_many :user_goals
+  has_many :users, :through => :user_goals
+  has_many :updates, :through => :user_goals
+
+  has_many :goal_taggings
+  has_many :tags, :through => :goal_taggings
+
 end
