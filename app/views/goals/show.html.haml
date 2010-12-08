@@ -1,10 +1,23 @@
-%h2 My Goals
+%h2.goal_title
+  The goal:
+  %span
+    = @tag.title
 
-.goal
-  I want to
-  = @goal.title
-
-.dashboard
-  = render :partial => "update"
-  = render :partial => "progress"
-  = render :partial => "account"
+.main
+  .update_stream
+    %h3 Latest Updates
+    = render @updates
+  
+.sidebar
+  %ul.aggregate_updates
+    %li
+      %h4= pluralize(goal_count = @tag.goals.count, "person", "people")
+      = goal_count == 1 ? "has" : "have"
+      taken on this goal.
+    %li
+      %h4= pluralize(good_count = @tag.feeling_good_update_count.to_i, "person", "people")
+      = good_count == 1 ? "is" : "are"
+      feeling good about their progress.
+    %li
+      %h4= pluralize(@tag.feeling_bad_update_count, "person", "people")
+      could use some support.

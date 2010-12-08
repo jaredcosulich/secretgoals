@@ -22,7 +22,7 @@
         .new_goal
           %h3
             I want to
-          = text_field_tag "goal"
+          = text_field_tag "goal", "quit smoking"
           %h3= link_to("Go >", "", :class => "go_goal")
         .navigation
           = link_to("My Goals", "")
@@ -38,7 +38,7 @@
     #footer
       .content
         .right
-          = link_to("About Secret Goals", about_path)
+          = link_to("About Secret Goals", about_index_path)
 
         #irrational_design
           .irrational_design

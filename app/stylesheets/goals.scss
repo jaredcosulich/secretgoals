@@ -1,4 +1,4 @@
-.goals_show {
+.me_goals_show {
   .dashboard {
     overflow: hidden;
     margin: 30px 0;
@@ -7,11 +7,11 @@
       background_color: #eee;
       .widget_title {
         background-color: $grey;
-        padding: 3px 12px;
+        padding: 3px 10px;
         color: white;
       }
       .widget_content {
-        padding: 12px;
+        padding: 10px;
         border: 1px solid $grey;
       }
     }
@@ -49,6 +49,7 @@
         font-size: 40pt;
         position: absolute;
         cursor: pointer;
+        z-index: 2;
       }
     }
 
@@ -60,6 +61,60 @@
     .progress_links a {
       font-size: smaller;
       margin-right: 20px;
+    }
+  }
+}
+
+.goal_title {
+  span {
+    font-style: italic;
+  }
+}
+
+.update_stream {
+  h3 {
+    margin-bottom: 10px;
+  }
+  .update {
+    margin-bottom: 10px;
+    .good {
+      border-left-color: $green;
+    }
+    .bad {
+      border-left-color: $red;
+    }
+    .status {
+      border-left-style: solid;
+      background-color: $darkgrey;
+      padding: 3px 10px;
+      color: white;
+      .timestamp {
+        float: right;
+        font-size: smaller;        
+      }
+    }
+    .update_content {
+      padding: 10px;
+      border: 1px solid $darkgrey;
+    }
+    .goal_details {
+      margin-top: 10px;
+      font-size: smaller;
+      color: $grey;
+      a {
+        color: $grey;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+
+.aggregate_updates {
+  li {
+    margin-bottom: 10px;
+    h4 {
+      margin: 0;
     }
   }
 }

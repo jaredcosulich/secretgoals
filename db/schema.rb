@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101204005950) do
+ActiveRecord::Schema.define(:version => 20101207232411) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                              :default => "", :null => false
@@ -36,9 +36,33 @@ ActiveRecord::Schema.define(:version => 20101204005950) do
     t.datetime "updated_at"
   end
 
+  create_table "goal_tags", :force => true do |t|
+    t.integer  "goal_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "goals", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "title"
+    t.string   "permalink"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["permalink"], :name => "index_tags_on_permalink", :unique => true
+
+  create_table "updates", :force => true do |t|
+    t.integer  "goal_id"
+    t.integer  "status"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

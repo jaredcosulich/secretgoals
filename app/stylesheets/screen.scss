@@ -13,6 +13,8 @@ $lightblue: #081736;
 $blue: #081736;
 $grey: #A19C99;
 $darkgrey: #555C6F;
+$red: #C24227;
+$green: #2B9044;
 
 body {
   @include blueprint-typography(true);
@@ -62,6 +64,7 @@ form {
       padding: 0;
     }
     input {
+      font-style: italic;
       font-size: 14pt;
       @include column(6);
       float: none;

@@ -1,0 +1,18 @@
+.update
+  .status{:class => update.status < 5 ? "bad" : "good", :style => "border-left-width: #{(update.status - 5).abs ** 2.5}px"}
+    .timestamp
+      = time_ago_in_words(update.created_at)
+      ago
+      
+    Someone
+    = update.status >= 5 ? "is feeling good: " : "could use some support"
+    = "(#{update.status})"
+  .update_content
+    .comment
+      = update.comment
+    .goal_details
+      Goal:
+      = link_to(update.goal.title, goals_path(update.goal))
+      %div
+        Tagged:
+        = update.goal.tags.map{ |t| link_to(t.title, goals_path(t)) }.join(", ").html_safe

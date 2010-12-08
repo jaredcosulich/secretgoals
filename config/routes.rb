@@ -6,12 +6,13 @@ Secretgoals::Application.routes.draw do
   resources :home
   resources :about
   resources :register
-
-  resources :beta_requests
+  resources :goals
 
   resource :me do
-    resources :goals
+    resources :goals, :controller => "me_goals"
   end
+
+  resources :beta_requests
 
   devise_for :admins
   namespace :admin do
