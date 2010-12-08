@@ -5,13 +5,19 @@ module Permalinkable
     before_save :set_permalink
   end
 
+  module ClassMethods
+    def find_by_permalink(permalink)
+      where("permalink = ?", permalink).first or raise ActiveRecord::RecordNotFound.new("Couldn't find #{name} with permalink #{permalink}")
+    end
+  end
+
   module InstanceMethods
     def to_param
       permalink
     end
-    
+
     def set_permalink
-      self.permalink = title.downcase.gsub(/\s/, '_')
+      self.permalink = title.downcase.gsub(/\s/, '-')
     end
   end
 end

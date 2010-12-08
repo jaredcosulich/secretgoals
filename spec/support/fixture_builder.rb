@@ -22,7 +22,6 @@ FixtureBuilder.configure do |fixture_builder|
     run.tags << exercise_tag
     run.tags << health_tag
 
-    
     Factory(:user_goal, :goal => quit_smoking, :created_at => 18.days.ago).tap do |user_goal|
       user_goal.updates.create(:status => 3, :comment => "Broke down and smoked about half a pack during a break today. Fucking boss was driving me insane.", :created_at => 15.days.ago)
       user_goal.updates.create(:status => 6, :comment => "Still feeling guilty about smoking yesterday, but haven't had a smoke since.", :created_at => 14.days.ago)

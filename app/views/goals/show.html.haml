@@ -3,25 +3,7 @@
   %span
     = @goal.title
 
-.main
-  .update_stream
-    %h3 Latest Updates
-    = render @updates
+= render "updates/stream"
 
 .sidebar
-  %ul.aggregate_updates
-    %li
-      %h4= pluralize(goal_count = @goal.user_goals.count, "person", "people")
-      = goal_count == 1 ? "has" : "have"
-      taken on this goal.
-    %li
-      %h4= pluralize(good_count = @goal.updates.feeling_good.count, "person", "people")
-      = good_count == 1 ? "is" : "are"
-      feeling good about their progress.
-    %li
-      %h4= pluralize(ok_count = @goal.updates.feeling_ok.count, "person", "people")
-      = ok_count == 1 ? "is" : "are"
-      hanging in there.
-    %li
-      %h4= pluralize(@goal.updates.feeling_bad.count, "person", "people")
-      could use some support.
+  = render "shared/update_counts", :subject => @goal, :subject_name => "this goal"

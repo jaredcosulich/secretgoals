@@ -1,0 +1,9 @@
+%h2.goal_title
+  Goals tagged:
+  %span
+    = @tag.title
+
+= render "updates/stream"
+
+.sidebar
+  = render "shared/update_counts", :subject => @tag, :subject_name => "goals with this tag"
