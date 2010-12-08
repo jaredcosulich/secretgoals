@@ -3,7 +3,7 @@
     .timestamp
       = time_ago_in_words(update.created_at)
       ago
-      
+
     Someone
     = update.status >= 5 ? "is feeling good: " : "could use some support"
     = "(#{update.status})"
@@ -12,7 +12,7 @@
       = update.comment
     .goal_details
       Goal:
-      = link_to(update.goal.title, goals_path(update.goal))
+      = link_to(update.goal.title, goal_path(update.goal))
       %div
         Tagged:
-        = update.goal.tags.map{ |t| link_to(t.title, goals_path(t)) }.join(", ").html_safe
+        = update.goal.tags.map{ |t| link_to(t.title, tag_path(t)) }.join(", ").html_safe
