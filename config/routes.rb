@@ -13,8 +13,12 @@ Secretgoals::Application.routes.draw do
   resource :register, :controller => "register"
 
   resource :me do
-    resources :goals, :controller => "me_goals"
+    resources :goals, :controller => "me_goals" do
+      member {post :add_update}
+    end
   end
+
+  match '/me/goals' => 'me_goals#index', :as => :user_root
 
   resources :about
   resources :beta_requests

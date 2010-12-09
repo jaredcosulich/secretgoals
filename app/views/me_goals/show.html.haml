@@ -1,12 +1,22 @@
 - @title = "My Goals: #{@goal.title}"
 
-%h2 My Goals
+.main
+  %h2
+    My Goal:
+    I want to
+    = @goal.title
 
-.goal
-  I want to
-  = @goal.title
+.sidebar
+  - if current_user.user_goals.length > 1
+    %h6 My Other Goals
+    %ul
+      - (current_user.user_goals - [@user_goal]).each do |user_goal|
+        %li= link_to("#{user_goal.title} >", me_goal_path(user_goal))
 
 .dashboard
   = render :partial => "update"
   = render :partial => "progress"
   = render :partial => "account"
+
+.main.update_stream
+  = render @user_goal.updates

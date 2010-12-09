@@ -1,6 +1,6 @@
 .me_goals_show {
   .dashboard {
-    overflow: hidden;
+    @include column(24);
     margin: 30px 0;
     .dashboard_widget {
       @include column(8);

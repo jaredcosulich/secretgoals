@@ -1,7 +1,8 @@
 class Update < ActiveRecord::Base
   belongs_to :user_goal
 
-  scope :latest, lambda { |limit| full.order("updates.created_at desc").limit(limit) }
+  default_scope order("updates.created_at desc")
+  scope :latest, lambda { |limit| full.limit(limit) }
 
   scope :full, includes(:user_goal => {:goal => :tags})
 
@@ -15,6 +16,15 @@ class Update < ActiveRecord::Base
 
   def goal
     user_goal.goal
+  end
+
+  def status_text
+    text = case
+      when status < 4: "could use some support"
+      when status > 6: "is feeling good"
+      else "is hanging in there"
+     end
+    "Someone #{text} (#{status})"
   end
 
 end

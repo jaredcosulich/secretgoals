@@ -1,7 +1,7 @@
 .dashboard_widget
   .widget_title Status Update
   .widget_content
-    = form_for :update do |f|
+    = form_for :update, :url => add_update_me_goal_path(@user_goal) do |f|
       Today I'm feeling (about my progress):
       %input{:name => "update[status]", :type => 'range', :min => 0, :max => 10, :step => 1, :value => 5}
       .labels
@@ -11,7 +11,7 @@
           (fantastic) 10
       = f.label :comment, "Why?"
       = f.text_area :comment
-      .update_type
+      -#.update_type
         = f.radio_button :type, "update"
         = f.label :type, "Update"
         = f.radio_button :type, "milestone"
