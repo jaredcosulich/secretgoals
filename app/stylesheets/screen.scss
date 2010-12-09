@@ -22,6 +22,7 @@ body {
   @include blueprint-debug;
   @include blueprint-interaction;
   font-size: 90%;
+  background-color: $grey;
   a, a:visited, a:hover {
     text-decoration: none;
     color: $blue;
@@ -57,7 +58,6 @@ form {
 #nav_bar {
   background-color: $blue;
   line-height: 40px;
-  margin-bottom: 10px;
   .new_goal {
     vertical-align: middle;
     @include column(19);
@@ -95,6 +95,11 @@ form {
   }
 }
 
+#content {
+  background-color: white;
+  min-height: 400px;
+  padding: 10px 0 60px 0;
+}
 
 
 .main {
@@ -114,7 +119,6 @@ form {
 }
 
 #footer {
-  margin-top: 60px;
   background-color: $grey;
   border-top: 1px solid #333;
   padding-top: 10px;

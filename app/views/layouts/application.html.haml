@@ -30,15 +30,16 @@
             = link_to("My Goals", me_goals_path)
             &nbsp;
             = link_to("Sign Out", destroy_user_session_path, :rel => "nofollow")
-    #content.content
-      #flash
-        - if flash[:notice].present?
-          .notice
-            = flash[:notice]
-        - if flash[:alert].present?
-          .alert
-            = flash[:alert]
-      = yield
+    #content
+      .content
+        #flash
+          - if flash[:notice].present?
+            .notice
+              = flash[:notice]
+          - if flash[:alert].present?
+            .alert
+              = flash[:alert]
+        = yield
     #footer
       .content
         .right
