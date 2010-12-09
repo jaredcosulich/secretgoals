@@ -1,3 +1,10 @@
+- @title = @goal.title.capitalize
+
+.add
+  XXXX
+
+  XXXX
+
 .main
   %h2.goal_title
     The goal:
@@ -5,7 +12,7 @@
       = @goal.title
 
 .sidebar
-  = link_to("Take on this goal!", add_goal_path(@goal))
+  %a#add{:href=> "javascript:void()"} Take on this goal!
 
 .main
   = render "updates/stream"
@@ -13,3 +20,10 @@
 .sidebar
   = render "shared/update_counts", :subject => @goal, :subject_name => "this goal"
   = render "ads/wide_skyscraper"
+
+:javascript
+  $(function(){
+    $("a#add").click(function(){
+      $(".add").show();
+    });
+  })

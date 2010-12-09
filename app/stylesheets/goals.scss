@@ -55,9 +55,9 @@
 
     .progress_post {
       height: 67px;
-      overflow: auto;      
+      overflow: auto;
     }
-    
+
     .progress_links a {
       font-size: smaller;
       margin-right: 20px;
@@ -68,6 +68,12 @@
 .goal_title {
   span {
     font-style: italic;
+  }
+}
+
+.goals_show {
+  .add {
+    display: none
   }
 }
 
@@ -90,7 +96,7 @@
       color: white;
       .timestamp {
         float: right;
-        font-size: smaller;        
+        font-size: smaller;
       }
     }
     .update_content {

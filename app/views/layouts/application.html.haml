@@ -1,7 +1,10 @@
 !!!
 %html
   %head
-    %title Secret Goals
+    %title
+      Secret Goals
+      = ": #{@title}" if @title.present?
+    %meta{:name => "description", :content => "An anonymous community built to help you achieve your goals."}  
     = csrf_meta_tag
     = favicon_link_tag
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
