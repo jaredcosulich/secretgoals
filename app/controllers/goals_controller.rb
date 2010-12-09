@@ -10,6 +10,14 @@ class GoalsController < ApplicationController
     @goal = Goal.find_by_title(params[:goal]) || Goal.new(:title => params[:goal])
   end
 
+  def go
+    if goal = Goal.find_by_title(params[:title])
+      redirect_to goal_path(goal)
+    else
+      redirect_to current_user.nil? ? register_path(:goal => params[:title]) : new_goal_path(:goal => params[:title])
+    end
+  end
+
   def show
     @updates = @goal.updates.latest(10)
     if @updates.empty?

@@ -5,7 +5,9 @@ Secretgoals::Application.routes.draw do
   match '/feedback' => "home#feedback", :method => :post, :as => "feedback"
   match '/success_story' => "home#feedback", :method => :post, :as => "success_story"
 
-  resources :goals
+  resources :goals do
+    collection {post :go}
+  end
   resources :tags
 
   resource :register, :controller => "register"

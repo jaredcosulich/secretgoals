@@ -25,11 +25,12 @@
           = link_to "secret goals", root_path
     #nav_bar
       .container
-        .new_goal
+        .go_goals
           %h3
             I want to
-          = text_field_tag "goal", "quit smoking"
-          %h3= link_to("Go >", "", :class => "go_goal")
+          = form_tag :go_goals do
+            = text_field_tag :title, "quit smoking"
+            = submit_tag"Go >", :id => "go"
         .navigation
           - if current_user.present?
             = link_to("My Goals", me_goals_path)

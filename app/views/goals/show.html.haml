@@ -1,7 +1,7 @@
 - @title = @goal.title.capitalize
 
 .add
-  = render "register/form"
+  -#= render "register/form"
 
 .main
   %h2.goal_title
@@ -10,7 +10,7 @@
       = @goal.title
 
 .sidebar
-  %a#add{:href=> "javascript:void()"} Take on this goal!
+  %a#add.big_blue{:href=> "javascript:void()"} Take on this goal!
 
 .main
   = render "updates/stream"

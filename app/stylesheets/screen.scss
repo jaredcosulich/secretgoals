@@ -29,6 +29,10 @@ body {
   }
 }
 
+body, input {
+  font-family: times-new-roman;
+}
+
 form {
   @include blueprint-form;
 }
@@ -58,7 +62,7 @@ form {
 #nav_bar {
   background-color: $blue;
   line-height: 40px;
-  .new_goal {
+  .go_goals {
     vertical-align: middle;
     @include column(19);
     h3 {
@@ -67,21 +71,26 @@ form {
       display: inline;
       padding: 0;
     }
-    input {
+    form {
+      display: inline-block;
+    }
+    input#title {
       font-style: italic;
       font-size: 14pt;
       @include column(6);
       float: none;
       color: $darkgrey;
       padding: 0;
+      border: 2px inset;
     }
-    .go_goal {
-      line-height: 40px;
+    input#go {
       background-color: $darkgrey;
+      border: none;
       float: none;
       color: white;
       padding: 2px 12px;
       text-decoration: none;
+      font-size: 1.5em;
     }
   }
   .navigation {
@@ -150,14 +159,24 @@ form {
   }
 }
 
-input.big_blue {
-  margin: 30px auto;
+.big_blue_button {
   display: block;
   background-color: $blue;
   color: white;
   padding: 12px 0;
   width: 9em;
   font-size: 14pt;
+}
+
+a.big_blue {
+  @extend .big_blue_button;
+  padding: 12px 0;
+  text-align: center;
+}
+
+input.big_blue {
+  @extend .big_blue_button;
+  margin: 30px auto;
 }
 
 .cloud {
