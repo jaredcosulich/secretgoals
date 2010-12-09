@@ -1,20 +1,22 @@
 Secretgoals::Application.routes.draw do
-
-  devise_for :users
+  devise_for :users, :skip => :registrations, :path_names => { :sign_in => 'login', :sign_out => 'logout'}
 
   root :to => "root#index"
   resources :home
-  resources :about
-  resources :register
-  resources :goals
+
+  resources :goals do
+    member {get :add}
+  end
   resources :tags
+
+  resources :register
 
   resource :me do
     resources :goals, :controller => "me_goals"
   end
 
+  resources :about
   resources :beta_requests
-
   devise_for :admins
   namespace :admin do
     root :to => "admin#index"

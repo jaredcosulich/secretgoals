@@ -1,9 +1,14 @@
-%h2.goal_title
-  The goal:
-  %span
-    = @goal.title
+.main
+  %h2.goal_title
+    The goal:
+    %span
+      = @goal.title
 
-= render "updates/stream"
+.sidebar
+  = link_to("Take on this goal!", add_goal_path(@goal))
+
+.main
+  = render "updates/stream"
 
 .sidebar
   = render "shared/update_counts", :subject => @goal, :subject_name => "this goal"

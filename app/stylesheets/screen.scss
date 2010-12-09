@@ -22,6 +22,10 @@ body {
   @include blueprint-debug;
   @include blueprint-interaction;
   font-size: 90%;
+  a, a:visited, a:hover {
+    text-decoration: none;
+    color: $blue;
+  }
 }
 
 form {
@@ -56,7 +60,7 @@ form {
   margin-bottom: 10px;
   .new_goal {
     vertical-align: middle;
-    @include column(21);
+    @include column(19);
     h3 {
       line-height: 40px;
       color: white;
@@ -81,7 +85,7 @@ form {
     }
   }
   .navigation {
-    @include column(3, true);
+    @include column(5, true);
     text-align: right;
     float: right;
     a {
