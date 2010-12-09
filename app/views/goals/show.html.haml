@@ -1,7 +1,8 @@
 - @title = @goal.title.capitalize
 
 .add
-  -#= render "register/form"
+  %a#close.big_blue{:href=> "javascript:void()"} X
+  = render current_user.nil? ? "register/form" : "me_goals/form" 
 
 .main
   %h2.goal_title
@@ -23,5 +24,8 @@
   $(function(){
     $("a#add").click(function(){
       $(".add").show();
+    });
+    $("a#close").click(function(){
+      $(".add").hide();
     });
   })

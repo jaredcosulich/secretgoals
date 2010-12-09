@@ -168,7 +168,7 @@ form {
   font-size: 14pt;
 }
 
-a.big_blue {
+a.big_blue, a.big_blue:hover {
   @extend .big_blue_button;
   padding: 12px 0;
   text-align: center;
