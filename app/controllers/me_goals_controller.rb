@@ -11,11 +11,10 @@ class MeGoalsController < ApplicationController
   end
 
   def create
-    if goal = Goal.find_by_permalink(params[:goal])
-      user_goal = current_user.user_goals.create(:goal => goal)
-      redirect_to me_goal_path(user_goal)
-    else
-      redirect_to me_goals_path
-    end
+    redirect_to :back and return unless params[:goal].present? && params[:goal][:title].present?
+
+    goal = Goal.find_or_create_by_title(params[:goal][:title])
+    user_goal = current_user.user_goals.create(:goal => goal)
+    redirect_to me_goal_path(user_goal)
   end
 end

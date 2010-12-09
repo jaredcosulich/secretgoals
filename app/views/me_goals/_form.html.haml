@@ -1,0 +1,6 @@
+= form_for :goal, :url => me_goals_path, :html => {:class => "register"} do |f|
+  .big_form_fields.goal_fields
+    = f.label :title, "I want to"
+    = f.text_field :title, :value => (params[:goal] || params[:register][:goal][:title] rescue "")
+
+  = f.submit "Get Started", :class => "big_blue"

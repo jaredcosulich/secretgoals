@@ -3,6 +3,7 @@ module Permalinkable
 
   included do
     before_save :set_permalink
+    validates :title, :uniqueness => {:case_sensitive => false}, :presence => true
   end
 
   module ClassMethods

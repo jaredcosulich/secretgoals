@@ -150,6 +150,16 @@ form {
   }
 }
 
+input.big_blue {
+  margin: 30px auto;
+  display: block;
+  background-color: $blue;
+  color: white;
+  padding: 12px 0;
+  width: 9em;
+  font-size: 14pt;
+}
+
 .cloud {
   .size_1 { font-size: 6pt; }
   .size_2 { font-size: 10pt; }

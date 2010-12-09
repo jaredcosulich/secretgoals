@@ -16,4 +16,4 @@
       = gf.label :title, "I want to"
       = gf.text_field :title, :value => (params[:goal] || params[:register][:goal][:title] rescue "")
 
-  = f.submit "Get Started"
+  = f.submit "Get Started", :class => "big_blue"
