@@ -9,7 +9,7 @@ Secretgoals::Application.routes.draw do
   end
   resources :tags
 
-  resources :register
+  resource :register, :controller => "register"
 
   resource :me do
     resources :goals, :controller => "me_goals"

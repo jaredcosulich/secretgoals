@@ -2,9 +2,9 @@
   Goals tagged:
   %span
     = @tag.title
-
-= render "updates/stream"
+.main
+  = render "updates/stream"
 
 .sidebar
   = render "shared/update_counts", :subject => @tag, :subject_name => "goals with this tag"
-  = render "ads/skyscraper"
+  = render "ads/wide_skyscraper"

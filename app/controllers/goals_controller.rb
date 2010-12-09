@@ -11,7 +11,7 @@ class GoalsController < ApplicationController
 
   def add
     unless current_user
-      redirect_to register_path(:goal => @goal.permalink)
+      redirect_to register_path(:goal => @goal.title)
     end
   end
 

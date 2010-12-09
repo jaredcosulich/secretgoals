@@ -1,7 +1,7 @@
 class RegisterController < ApplicationController
 
 
-  def index
+  def show
     @user = User.new
   end
 
@@ -13,7 +13,7 @@ class RegisterController < ApplicationController
       user_goal = @user.user_goals.create(:goal => Goal.find_or_create_by_title(params[:register][:goal]))
       redirect_to me_goal_path(user_goal)
     else
-      render :action => :index
+      render :action => :show
     end
   end
 end
