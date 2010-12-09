@@ -33,7 +33,7 @@ form {
   @include blueprint-form;
 }
 
-.content {
+.container {
   @include container;
 }
 
@@ -119,9 +119,10 @@ form {
 }
 
 #footer {
+  font-size: 10pt;
   background-color: $grey;
   border-top: 1px solid #333;
-  padding-top: 10px;
+  padding-top: 6px;
   a {
     text-decoration: none;
     color: white;
@@ -130,8 +131,6 @@ form {
     }
   }
   .right {
-    color: #999;
-    padding: 0 12px;
     display: block;
     float: right;
   }

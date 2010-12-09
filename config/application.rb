@@ -8,6 +8,7 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Secretgoals
   class Application < Rails::Application
+    attr_accessor :cache_buster, :host
     config.app_generators do |g|
       g.template_engine :haml
       g.test_framework :rspec
@@ -44,5 +45,16 @@ module Secretgoals
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :password_confirmation]
+
+    config.before_initialize do
+      Rails.application.cache_buster = Time.now.to_i
+      Rails.application.host = case Rails.env
+        when "development": "localhost:3000"
+        when "production" : "www.secretgoals.com"
+        when "staging" : "staging.secretgoals.com"
+        else "#{Rails.env}.secretgoals.com"
+      end
+    end
+
   end
 end
