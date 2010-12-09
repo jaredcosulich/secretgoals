@@ -7,10 +7,7 @@ class GoalsController < ApplicationController
 
   def show
     @updates = @goal.updates.latest(10)
-  end
-
-  def add
-    unless current_user
+    if @updates.empty? && current_user.nil?
       redirect_to register_path(:goal => @goal.title)
     end
   end

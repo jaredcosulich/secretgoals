@@ -1,7 +1,7 @@
 class Update < ActiveRecord::Base
   belongs_to :user_goal
 
-  scope :latest, lambda { |limit| full.order("created_at desc").limit(limit) }
+  scope :latest, lambda { |limit| full.order("updates.created_at desc").limit(limit) }
 
   scope :full, includes(:user_goal => {:goal => :tags})
 

@@ -1,12 +1,10 @@
-.register_show, .register_create {
-  form {
-    padding: 12px;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    width: 24em;
-    margin: auto;
-    font-size: 18pt;
-  }
+form.register {
+  padding: 12px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  width: 24em;
+  margin: auto;
+  font-size: 18pt;
 
   .big_form_fields, .big_form_fields input {
     font-size: 18pt;

@@ -1,0 +1,19 @@
+- @user ||= User.new
+= form_for :register, :html => {:class => "register"} do |f|
+  = f.fields_for @user do |uf|
+    .big_form_fields
+      = uf.label :email
+      = uf.error_message_on :email
+      = uf.text_field :email, :class => "user_fields"
+    .big_form_fields
+      = uf.label :password
+      = uf.error_message_on :password
+      = uf.password_field :password, :class => "user_fields"
+  = f.fields_for :goal do |gf|
+    .big_form_fields.goal_fields
+      = gf.label :title, "What is your goal?"
+      %br
+      = gf.label :title, "I want to"
+      = gf.text_field :title, :value => (params[:goal] || params[:register][:goal][:title] rescue "")
+
+  = f.submit "Get Started"

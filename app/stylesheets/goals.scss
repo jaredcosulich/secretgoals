@@ -73,7 +73,10 @@
 
 .goals_show {
   .add {
-    display: none
+    /*display: none;*/
+    border: 1px solid $blue;
+    padding: 10px;
+    margin-bottom: 10px;
   }
 }
 
