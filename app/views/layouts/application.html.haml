@@ -19,10 +19,12 @@
     #header
       .container
         .research
-          Keeping your goals secret may help you achieve them.
-          = link_to("Read the research >", "")
+          The ups and downs of achieving your goals, shared openly, honestly, secretly.
+          -#
+            Keeping your goals secret may help you achieve them.
+            = link_to("Read the research >", "")
         %h1
-          = link_to "secret goals", root_path
+          = link_to "secret goals", root_path, :title => "Secret Goals", :alt => "Secret Goals"
     #nav_bar
       .container
         .go_goals
