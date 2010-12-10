@@ -81,6 +81,11 @@
             %br
             TheMatchingGame.com
 
+          %a.site{:href => "http://www.secretgoals.com"}
+            = image_tag("secret_goals_square_logo.png", :style => "border: 1px solid #ccc;")
+            %br
+            SecretGoals.com
+
     #feedback.email_us{:style => "display: none;"}
       = form_for :feedback, :url => feedback_path, :remote => true, :html => {:id => "feedback_form", :class => "email_us_form"}  do |f|
         %p We welcome any feedback, questions, problems, songs, poems, etc. you might have to offer regarding Secret Goals.
