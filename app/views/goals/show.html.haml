@@ -18,10 +18,18 @@
   %a#add.big_blue{:href=> "javascript:void()"} Take on this goal!
 
 .main
-  = render "updates/stream"
+  - if @updates.present?
+    = render "updates/stream"
+  - else
+    = render "goals/register"
+
 
 .sidebar
-  = render "shared/update_counts", :subject => @goal, :subject_name => "this goal"
+  - if @updates.present?
+    = render "shared/update_counts", :subject => @goal, :subject_name => "this goal"
+  - else
+    = render "shared/goal_cloud"
+
   = render "ads/wide_skyscraper"
 
 :javascript
