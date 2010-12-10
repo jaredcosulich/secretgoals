@@ -14,7 +14,7 @@
       = stylesheet_link_tag "compiled/ie.css?#{Rails.application.cache_buster}", :media => 'screen, projection'
     = javascript_include_tag :defaults, "rangeinput", "jquery.svg", "jquery.drawinglibrary", "facebox"
     = stylesheet_link_tag("facebox")
-
+    = render "shared/analytics"
   %body{:class => "#{controller.controller_name}_#{controller.action_name}"}
     #header
       .container
