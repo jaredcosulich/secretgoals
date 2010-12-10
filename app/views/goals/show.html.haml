@@ -9,6 +9,10 @@
     The goal:
     %span
       = @goal.title
+  %h4
+    Tags:
+    = @goal.tags.collect { |tag| link_to(tag.title, tag_path(tag)) }.join(", ").html_safe
+
 
 .sidebar
   %a#add.big_blue{:href=> "javascript:void()"} Take on this goal!

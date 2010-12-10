@@ -1,3 +1,7 @@
+h2.goal_title {
+  margin-bottom: 0;
+}
+
 .me_goals_show {
   .dashboard {
     @include column(24);
@@ -110,6 +114,10 @@
     background-color: #D1DAD1;
     margin-bottom: 10px;
 
+    .goal_label {
+      color: $grey;
+    }
+
     .status {
       vertical-align: top;
       background: white url("/images/update_corner.gif") right top no-repeat;
@@ -143,9 +151,7 @@
     .goal_details {
       margin-top: 10px;
       font-size: smaller;
-      color: $grey;
       a {
-        color: $grey;
         text-decoration: none;
       }
     }

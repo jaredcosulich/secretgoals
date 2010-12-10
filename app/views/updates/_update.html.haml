@@ -4,15 +4,17 @@
       = update.status
     = update.status_text
   %td.update_content
+    - if @goal.nil?
+      %h6
+        %span.goal_label goal:
+        = link_to(update.goal.title, goal_path(update.goal))
+
     .comment
       = simple_format(update.comment)
     .timestamp
       = time_ago_in_words(update.created_at)
       ago
-    .goal_details
-      Goal:
-      = link_to(update.goal.title, goal_path(update.goal))
-      &nbsp; &nbsp;
-      Tagged:
-      = update.goal.tags.map{ |t| link_to(t.title, tag_path(t)) }.join(", ").html_safe
+    - if @goal.nil?
+      .goal_details
+        = update.goal.tags.map{ |t| link_to(t.title, tag_path(t)) }.join(", ").html_safe
 
