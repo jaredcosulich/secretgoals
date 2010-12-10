@@ -41,6 +41,8 @@
             = link_to("Sign Out", destroy_user_session_path, :rel => "nofollow")
           - else
             = link_to("Sign In", new_user_session_path)
+            &nbsp;
+            = link_to("Sign Up", register_path)
     #content
       .container
         #flash
