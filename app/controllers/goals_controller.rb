@@ -14,6 +14,7 @@ class GoalsController < ApplicationController
     if goal = Goal.find_by_title(params[:title])
       redirect_to goal_path(goal)
     else
+      @goals = Goal.most_updated
       @goal = Goal.new(:title => params[:title])
       render "goals/show"
     end

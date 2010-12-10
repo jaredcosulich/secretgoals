@@ -9,9 +9,10 @@
     The goal:
     %span
       = @goal.title
-  %h4
-    Tags:
-    = @goal.tags.collect { |tag| link_to(tag.title, tag_path(tag)) }.join(", ").html_safe
+  - if @goal.tags.present?
+    %h4
+      Tags:
+      = @goal.tags.collect { |tag| link_to(tag.title, tag_path(tag)) }.join(", ").html_safe
 
 
 .sidebar

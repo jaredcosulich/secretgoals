@@ -83,7 +83,7 @@ h2.goal_title {
   }
 }
 
-.goals_show {
+.goals_show, .goals_go {
   .add {
     display: none;
     border: 1px solid $blue;
@@ -93,7 +93,7 @@ h2.goal_title {
   }
 
   #add {
-    margin: auto;
+    margin: 0 auto 20px auto;    
   }
 
   #close {
