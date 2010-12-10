@@ -1,3 +1,4 @@
-%table.update_stream
-  %tbody
-    = render @updates
+- unless @updates.empty?
+  %table.update_stream
+    %tbody
+      = render @updates

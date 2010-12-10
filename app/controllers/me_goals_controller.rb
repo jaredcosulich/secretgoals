@@ -8,6 +8,7 @@ class MeGoalsController < ApplicationController
 
   def show
     @goal = @user_goal.goal
+    @updates = @user_goal.updates
   end
 
   def add_update

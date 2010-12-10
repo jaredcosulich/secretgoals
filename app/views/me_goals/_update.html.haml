@@ -3,6 +3,7 @@
   .widget_content
     = form_for :update, :url => add_update_me_goal_path(@user_goal) do |f|
       Today I'm feeling (about my progress):
+      %span#update_status 5
       %input{:name => "update[status]", :type => 'range', :min => 0, :max => 10, :step => 1, :value => 5}
       .labels
         .bad
@@ -20,3 +21,15 @@
         = f.label :type, "Goal Completed"
 
       = f.submit("Post Update")
+
+
+:javascript
+  $(function() {
+    $('input.range').live('change', updateStatusFromSlider);
+
+    function updateStatusFromSlider(e) {
+      var jThis = $(this);
+      console.log(jThis, $("#update_status"));
+      $("#update_status").html(jThis.val())
+    }
+  });

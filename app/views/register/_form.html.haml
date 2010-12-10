@@ -1,6 +1,6 @@
 - @user ||= User.new
 - params[:goal] = @goal.title if @goal.present?
-= form_for :register, :html => {:class => "register"} do |f|
+= form_for :register, :url => register_path, :html => {:class => "register"} do |f|
   = f.fields_for @user do |uf|
     .big_form_fields
       = uf.label :email

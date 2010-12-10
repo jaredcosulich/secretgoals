@@ -38,6 +38,13 @@ form {
   @include blueprint-form;
 }
 
+.logo {
+  font-size: 30pt;
+  display: block;
+  height: 50px;
+  overflow: hidden;
+}
+
 .container {
   @include container;
 }

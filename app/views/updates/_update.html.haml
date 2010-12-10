@@ -1,4 +1,4 @@
-%tr.update[update]{:data => {:created_at => update.created_at, :status => update.status}}
+%tr.update[update]{:data => {:created_at => update.created_at.rfc822, :status => update.status}}
   %td.status
     .status_color{:class => update.status_class}
       = update.status
