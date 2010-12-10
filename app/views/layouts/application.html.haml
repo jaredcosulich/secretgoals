@@ -32,7 +32,7 @@
           %h3
             I want to
           = form_tag :go_goals do
-            = text_field_tag :title, "quit smoking"
+            = text_field_tag :title, Goal.most_updated.choice["title"]
             = submit_tag"Go >", :id => "go"
         .navigation
           - if current_user.present?
