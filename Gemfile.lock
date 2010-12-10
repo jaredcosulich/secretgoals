@@ -88,6 +88,7 @@ GEM
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
     newrelic_rpm (2.13.3)
+    permalink_fu (1.0.0)
     pg (0.9.0)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -153,6 +154,7 @@ DEPENDENCIES
   jasmine
   mongrel
   newrelic_rpm
+  permalink_fu
   pg
   rails (~> 3.0.3)
   rspec-rails
