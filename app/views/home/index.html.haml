@@ -2,16 +2,13 @@
   %h3 An anonymous community built to help you achieve your goals.
 
 .main
-  .goals.cloud
-    - @goals.each do |goal|
-      = link_to goal.title, goal_path(goal), :class => goal_cloud_class(goal)
-
   = render "updates/stream"
 
 
 .sidebar
-  %h3 Tags
-  %ul
-    - @tags.each do |tag|
-      %li= link_to tag.title, tag_path(tag)
+  .goals.cloud
+    %h3 What's Your Goal?
+    - @goals.shuffle.each do |goal|
+      = link_to goal['title'], goal_path(goal['permalink']), :class => "size_#{goal['bucket']}"
+
 

@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     @tags = Tag.in_use.all
-    @goals = Goal.all
+    @goals = Goal.most_updated
     @updates = Update.latest(10)
   end
 

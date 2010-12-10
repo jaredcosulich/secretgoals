@@ -112,7 +112,8 @@ form {
 
 
 .main {
-  @include column(16);
+  @include column(15);
+  @include append(1)
 }
 
 .sidebar {
@@ -180,9 +181,17 @@ input.big_blue {
 }
 
 .cloud {
-  .size_1 { font-size: 6pt; }
-  .size_2 { font-size: 10pt; }
-  .size_3 { font-size: 14pt; }
+  h3 { font-style: italic; margin-bottom: 3px; }
+  .size_0 { font-size: 18pt; }
+  .size_1 { font-size: 14pt; }
+  .size_2 { font-size: 12pt; }
+  .size_3 { font-size: 10pt; }
+  .size_4 { font-size: 9pt; }
+  .size_5 { font-size: 9pt; }
+  .size_6 { font-size: 8pt; }
+  .size_7 { font-size: 8pt; }
+  .size_8 { font-size: 8pt; }
+  .size_9 { font-size: 8pt; }
   margin-bottom: 30px;
 }
 
