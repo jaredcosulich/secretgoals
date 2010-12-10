@@ -47,6 +47,9 @@ module Secretgoals
     config.filter_parameters += [:password, :password_confirmation]
 
     config.before_initialize do
+      Dir["#{Rails.root}/lib/ruby_ext/*.rb"].sort.each do |file|
+        require file
+      end
       Rails.application.cache_buster = Time.now.to_i
       Rails.application.host = case Rails.env
         when "development": "localhost:3000"

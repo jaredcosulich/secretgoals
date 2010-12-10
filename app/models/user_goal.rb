@@ -9,4 +9,8 @@ class UserGoal < ActiveRecord::Base
   }
 
   delegate :title, :to => :goal
+
+  def to_param
+    id.to_obfuscated
+  end
 end
