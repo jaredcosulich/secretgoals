@@ -1,17 +1,16 @@
-%ul.aggregate_updates
-  -#
-    %li
-      %h4= pluralize(goal_count = subject.user_goals.count, "person", "people")
-      = goal_count == 1 ? "has" : "have"
-      = "taken on #{subject_name}."
-  %li
-    %h4= pluralize(good_count = subject.updates.feeling_good.count, "person", "people")
-    = good_count == 1 ? "is" : "are"
+- updates = subject.nil? ? Update : subject.updates
+
+.aggregate_updates
+  .aggregate.good_count
+    %span.count= (good_count = updates.feeling_good.count)
+    = (good_count == 1 ? "person<br/>is" : "people<br/>are").html_safe
     feeling good.
-  %li
-    %h4= pluralize(ok_count = subject.updates.feeling_ok.count, "person", "people")
-    = ok_count == 1 ? "is" : "are"
+  .aggregate.ok_count
+    %span.count= (ok_count = updates.feeling_ok.count)
+    = (ok_count == 1 ? "person<br/>is" : "people<br/>are").html_safe
     hanging in there.
-  %li
-    %h4= pluralize(subject.updates.feeling_bad.count, "person", "people")
+  .aggregate.bad_count
+    %span.count= (bad_count = updates.feeling_bad.count)
+    = (bad_count == 1 ? "person" : "people")
+    %br
     could use some support.

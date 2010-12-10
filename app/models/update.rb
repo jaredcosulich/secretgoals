@@ -19,12 +19,20 @@ class Update < ActiveRecord::Base
   end
 
   def status_text
+    case
+      when status < 4: "Needs Support"
+      when status > 6: "Feeling Good"
+      else "Hanging In"
+    end
+  end
+
+  def status_class
     text = case
-      when status < 4: "could use some support"
-      when status > 6: "is feeling good"
-      else "is hanging in there"
-     end
-    "Someone #{text} (#{status})"
+      when status < 4: "bad"
+      when status > 6: "good"
+      else "ok"
+    end
+    "#{text}_status"
   end
 
 end

@@ -1,16 +1,18 @@
-.update[update]{:data => {:created_at => update.created_at, :status => update.status}}
-  .status{:class => update.status < 5 ? "bad" : "good", :style => "border-left-width: #{(update.status - 5).abs ** 2.5}px"}
+%tr.update[update]{:data => {:created_at => update.created_at, :status => update.status}}
+  %td.status
+    .status_color{:class => update.status_class}
+      = update.status
+    = update.status_text
+  %td.update_content
+    .comment
+      = simple_format(update.comment)
     .timestamp
       = time_ago_in_words(update.created_at)
       ago
-
-    = update.status_text
-  .update_content
-    .comment
-      = simple_format(update.comment)
     .goal_details
       Goal:
       = link_to(update.goal.title, goal_path(update.goal))
-      %div
-        Tagged:
-        = update.goal.tags.map{ |t| link_to(t.title, tag_path(t)) }.join(", ").html_safe
+      &nbsp; &nbsp;
+      Tagged:
+      = update.goal.tags.map{ |t| link_to(t.title, tag_path(t)) }.join(", ").html_safe
+

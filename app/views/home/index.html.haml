@@ -1,11 +1,13 @@
 .tagline
-  %h3 An anonymous community built to help you achieve your goals.
+  %h3
+    The ups and downs of achieving your goals, shared openly, honestly, secretly.
 
 .main
   = render "updates/stream"
 
-
 .sidebar
+  = render "shared/update_counts", :subject => nil, :subject_name => "their goals"
+
   .goals.cloud
     %h3 What's Your Goal?
     - @goals.shuffle.each do |goal|
