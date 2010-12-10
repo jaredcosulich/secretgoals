@@ -15,6 +15,7 @@
     = javascript_include_tag :defaults, "rangeinput", "jquery.svg", "jquery.drawinglibrary", "facebox"
     = stylesheet_link_tag("facebox")
     = render "shared/analytics"
+    = render "shared/clixpy" if ENV["CLIXPY"]
   %body{:class => "#{controller.controller_name}_#{controller.action_name}"}
     #header
       .container
