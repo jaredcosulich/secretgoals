@@ -8,6 +8,7 @@ gem 'haml-rails'
 gem 'compass'
 
 gem 'devise'
+gem 'permalink_fu'
 
 gem 'hoptoad_notifier'
 gem 'newrelic_rpm'
