@@ -4,7 +4,6 @@
     margin: 30px 0;
     .dashboard_widget {
       @include column(8);
-      background_color: #eee;
       .widget_title {
         background-color: $grey;
         padding: 3px 10px;
@@ -13,6 +12,7 @@
       .widget_content {
         padding: 10px;
         border: 1px solid $grey;
+        height: 200px;        
       }
     }
     .last_widget {
@@ -46,16 +46,19 @@
       margin-bottom: 10px;
       position: relative;
       .progress_point {
-        font-size: 40pt;
+        height: 20px;
+        width: 20px;
         position: absolute;
         cursor: pointer;
         z-index: 2;
       }
     }
 
-    .progress_post {
-      height: 67px;
-      overflow: auto;
+    #selected_update {
+      .comment {
+        height: 60px;
+        overflow: auto;
+      }
     }
 
     .progress_links a {
