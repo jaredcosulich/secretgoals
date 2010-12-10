@@ -1,4 +1,6 @@
 .dashboard_widget.last_widget
   .widget_title Account Settings
   .widget_content
-    Account Summary
+    %dl
+      %dt Email:
+      %dd= current_user.email
