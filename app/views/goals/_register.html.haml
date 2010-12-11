@@ -1,2 +1,2 @@
 %h3 Be the first to take on this goal:
-= render "register/form"
+= render current_user.nil? ? "register/form" : "me_goals/form"
