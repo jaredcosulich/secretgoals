@@ -1,6 +1,7 @@
 class GoalsController < ApplicationController
   before_filter :load_goal, :only => [:show, :add]
   before_filter :authenticate_user!, :only => [:new]
+  protect_from_forgery :except => :go
 
   def index
     redirect_to root_path
