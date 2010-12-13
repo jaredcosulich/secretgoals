@@ -111,7 +111,7 @@ h2.goal_title {
   border: 1px solid $grey;
   .update {
     border-bottom: 1px solid $grey;
-    background-color: #D1DAD1;
+    background-color: $update_grey;
     margin-bottom: 10px;
 
     .goal_label {
