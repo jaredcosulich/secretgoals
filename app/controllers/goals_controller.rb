@@ -29,6 +29,7 @@ class GoalsController < ApplicationController
 
   protected
   def load_goal
-    @goal = Goal.find_by_permalink!(params[:id])
+    @goal = Goal.find_by_permalink(params[:id])
+    redirect_to root_path if @goal.nil?
   end
 end
