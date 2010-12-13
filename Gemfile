@@ -27,5 +27,5 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'fixture_builder'
-#  gem 'webrat', '0.7.1'
+  gem 'webrat', '0.7.1'
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101208181103) do
+ActiveRecord::Schema.define(:version => 20101213215149) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                              :default => "", :null => false
@@ -76,10 +76,11 @@ ActiveRecord::Schema.define(:version => 20101208181103) do
   add_index "updates", ["user_goal_id"], :name => "index_updates_on_user_goal_id"
 
   create_table "user_goals", :force => true do |t|
-    t.integer  "goal_id",    :null => false
-    t.integer  "user_id",    :null => false
+    t.integer  "goal_id",            :null => false
+    t.integer  "user_id",            :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "notification_delay"
   end
 
   add_index "user_goals", ["goal_id"], :name => "index_user_goals_on_goal_id"

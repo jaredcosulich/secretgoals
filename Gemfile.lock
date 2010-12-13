@@ -55,7 +55,7 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
-    heroku (1.14.5)
+    heroku (1.14.8)
       json_pure (>= 1.2.0, < 1.5.0)
       launchy (~> 0.3.2)
       rest-client (>= 1.4.0, < 1.7.0)
@@ -88,6 +88,7 @@ GEM
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
     newrelic_rpm (2.13.3)
+    nokogiri (1.4.4)
     permalink_fu (1.0.0)
     pg (0.9.0)
     polyglot (0.3.1)
@@ -137,6 +138,10 @@ GEM
     tzinfo (0.3.23)
     warden (1.0.2)
       rack (>= 1.0.0)
+    webrat (0.7.1)
+      nokogiri (>= 1.2.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5.3)
 
 PLATFORMS
   ruby
@@ -161,3 +166,4 @@ DEPENDENCIES
   ruby-debug-base
   ruby-debug-ide
   spork
+  webrat (= 0.7.1)

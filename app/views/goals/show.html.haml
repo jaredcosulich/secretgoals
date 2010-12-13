@@ -1,8 +1,9 @@
 - @title = @goal.title.capitalize
 
-.add
-  %a#close.big_blue{:href=> "javascript:void()"} X
-  = render current_user.nil? ? "register/form" : "me_goals/form"
+- if @updates.present?
+  .add
+    %a#close.big_blue{:href=> "javascript:void()"} X
+    = render current_user.nil? ? "register/form" : "me_goals/form"
 
 .main
   %h2.goal_title
@@ -14,9 +15,9 @@
       Tags:
       = @goal.tags.collect { |tag| link_to(tag.title, tag_path(tag)) }.join(", ").html_safe
 
-
 .sidebar
-  %a#add.big_blue{:href=> "javascript:void()"} Take on this goal!
+  - if @updates.present?
+    %a#add.big_blue{:href=> "javascript:void()"} Take on this goal!
 
 .main
   - if @updates.present?

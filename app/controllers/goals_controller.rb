@@ -6,10 +6,6 @@ class GoalsController < ApplicationController
     redirect_to root_path
   end
 
-  def new
-    @goal = Goal.find_by_title(params[:goal]) || Goal.new(:title => params[:goal])
-  end
-
   def go
     if goal = Goal.find_by_title(params[:title])
       redirect_to goal_path(goal)

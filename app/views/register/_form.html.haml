@@ -1,20 +1,34 @@
 - @user ||= User.new
 - params[:goal] = @goal.title if @goal.present?
 = form_for :register, :url => register_path, :html => {:class => "register"} do |f|
-  = f.fields_for @user do |uf|
-    .big_form_fields
-      = uf.label :email
-      = uf.error_message_on :email
-      = uf.text_field :email, :class => "user_fields"
-    .big_form_fields
-      = uf.label :password
-      = uf.error_message_on :password
-      = uf.password_field :password, :class => "user_fields"
   = f.fields_for :goal do |gf|
     .big_form_fields.goal_fields
       = gf.label :title, "What is your goal?"
       %br
-      = gf.label :title, "I want to"
+      I want to
       = gf.text_field :title, :value => (params[:goal] || params[:register][:goal][:title] rescue "")
+
+
+  = f.fields_for :user_goal do |ugf|
+    .big_form_fields
+      = ugf.label :notification_delay, "How often should we check in on your progress?"
+      %br
+      Don't let me go more than
+      = ugf.select :notification_delay, [["1 day", 1], ["3 days", 3], ["1 week", 7], ["2 weeks", 14], ["1 month", 31], ["never", nil]]
+      without an update.
+
+
+  = f.fields_for @user do |uf|
+    .big_form_fields
+      = uf.label :email, "How should we check on your progress?"
+      %br
+      Email me at
+      = uf.text_field :email, :class => "user_fields"
+      to check on my progress.
+    -#
+      .big_form_fields
+        = uf.label :password
+        = uf.error_message_on :password
+        = uf.password_field :password, :class => "user_fields"
 
   = f.submit "Get Started", :class => "big_blue"

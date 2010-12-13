@@ -6,17 +6,36 @@ form.register {
   margin: auto;
   font-size: 18pt;
 
+  .field_with_errors {
+    display: inline;
+    input {
+      background-color: pink;
+    }
+  }
+
+  label {
+    margin-top: 1em;
+  }
+
+  .big_form_fields {
+    padding-top: 30px;
+    overflow: hidden;
+  }
+
   .big_form_fields, .big_form_fields input {
     font-size: 18pt;
     input.user_fields {
-      width: 22.4em;
-      display: block;
+      width: 6em;
+      display: inline;
       margin-top: 0;
     }
   }
 
+  .big_form_fields select {
+    font-size: 16pt;
+  }
+
   .goal_fields {
-    padding-top: 30px;
     input[type='text'] {
       width: 18em;
     }
