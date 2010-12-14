@@ -15,8 +15,9 @@
       %table
         %tbody
           %tr
+            - auto_login_status_link = @emailing.auto_login_url(me_goal_path(@user_goal))
             - (0..10).each do |status|
-              %td{:style => "width: 6em;"}= link_to(status, @emailing.auto_login_url(me_goal_path(@user_goal, :status => status)))
+              %td{:style => "width: 6em;"}= link_to(status, "#{auto_login_status_link}?status=#{status}")
           %tr
             %td{:colspan => 5} Terrible
             %td{:colspan => 3} OK
