@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UpdateReminder do
   before :each do
-    @user_goal = Factory(:user_goal, :notification_delay => 3)
+    @user_goal = Factory(:user_goal, :notification_delay => 3, :created_at => 5.days.ago)
   end
 
   it "should send a reminder to people who haven't updated in notification_delay days" do
@@ -11,6 +11,15 @@ describe UpdateReminder do
     UpdateReminder.send_reminders
     verify_only_delivery(@user_goal.user.email, /more than\n3 days\nsince/)
     @user_goal.reload.last_emailed_update_reminder.should be > 5.minutes.ago
+  end
+
+  it "should send a reminder to multiple people who haven't updated in notification_delay days" do
+    Factory(:user_goal, :notification_delay => 3)
+    Factory(:user_goal, :notification_delay => 3, :created_at => 5.days.ago)
+    @user_goal.updates.create(:status => 4, :comment => "doesn't matter", :created_at => 73.hours.ago)
+    ActionMailer::Base.deliveries.clear
+    UpdateReminder.send_reminders
+    ActionMailer::Base.deliveries.length.should == 2
   end
 
   it "should not send a reminder if notification_delay is nil" do

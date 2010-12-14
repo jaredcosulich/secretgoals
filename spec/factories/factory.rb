@@ -2,6 +2,10 @@ Factory.sequence :email do |n|
   "person#{n}@example.com"
 end
 
+Factory.sequence :goal_title do |n|
+  "goal #{n}"
+end
+
 Factory.define :user do |f|
   f.email {Factory.next :email}
   f.password "password"
@@ -9,7 +13,7 @@ Factory.define :user do |f|
 end
 
 Factory.define :goal do |f|
-  f.title "My Goal"
+  f.title {Factory.next :goal_title}
 end
 
 Factory.define :tag do |f|
