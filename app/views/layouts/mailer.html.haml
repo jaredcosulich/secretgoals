@@ -1,0 +1,19 @@
+- grey = "#9F9997"
+%table{:style => "width:540px; margin: auto; border: 1px solid #ccc; font-family: arial;"}
+  %tr
+    %td
+      %div{:style => "background-color: #{grey}; text-align: center; padding: 6px 0;"}
+        = link_to(image_tag("http://#{Rails.application.host}/images/logo.jpg", :alt => "Secret Goals", :size => "347x48", :style => "border: none;"), root_url)
+  %tr
+    %td{:style => "padding: 6px;"}
+      = yield
+
+  %tr
+    %td
+      %div{:style => "background-color: #{grey}; padding: 12px; text-align: center; color: white; font-size: 9pt; "}
+        = link_to("Visit Secret Goals", root_url, :style => "color: white; text-decoration: none;")
+        -#
+          &nbsp; &nbsp; &nbsp;
+          |
+          &nbsp; &nbsp; &nbsp;
+          = link_to("Unsubscribe From All Charity Birthday Emails", "", :style => "color: white; text-decoration: none;")

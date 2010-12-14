@@ -1,10 +1,10 @@
-.dashboard_widget
+.dashboard_widget#update_status_widget
   .widget_title Status Update
   .widget_content
     = form_for :update, :url => add_update_me_goal_path(@user_goal) do |f|
-      Today I'm feeling (about my progress):
-      %span#update_status 5
-      %input{:name => "update[status]", :type => 'range', :min => 0, :max => 10, :step => 1, :value => 5}
+      %a#show_lightbox_widget.lightbox{:href => "#update_status_widget"} Today I'm feeling (about my progress):
+      %span#update_status= params[:status] || 5
+      %input{:name => "update[status]", :type => 'range', :min => 0, :max => 10, :step => 1, :value => params[:status] || 5}
       .labels
         .bad
           0 (terrible)
@@ -26,6 +26,10 @@
 :javascript
   $(function() {
     $('input.range').live('change', updateStatusFromSlider);
+
+    if (window.location.toString().indexOf("status=") > -1) {
+      $("#show_lightbox_widget").click();
+    }
 
     function updateStatusFromSlider(e) {
       var jThis = $(this);

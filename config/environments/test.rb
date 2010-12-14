@@ -32,4 +32,11 @@ Secretgoals::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
-end
+
+  module ::Enumerable
+      def only
+        raise "expected exactly one item but there were #{size}" unless size == 1
+        first
+      end
+    end
+  end

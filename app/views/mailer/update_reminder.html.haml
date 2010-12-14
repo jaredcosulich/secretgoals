@@ -1,0 +1,42 @@
+%table{:style => "width: 100%; font-size: 11pt;"}
+  %tr
+    %td{:style => "padding: 12px; border: 1px solid #ccc"}
+      %p
+        We just wanted to remind you about your goal to
+        = @goal.title
+
+      %p
+        It's been more than
+        = @user_goal.notification_delay_text
+        since your last update. Now would be a good time to take a moment and reflect on your progress.
+
+      %br
+      %p How are you feeling about your progress?
+      %table
+        %tbody
+          %tr
+            - (0..10).each do |status|
+              %td{:style => "width: 6em;"}= link_to(status, @emailing.auto_login_url(me_goal_path(@user_goal, :status => status)))
+          %tr
+            %td{:colspan => 5} Terrible
+            %td{:colspan => 3} OK
+            %td{:colspan => 3, :style => "text-align: right;"} Fantastic
+
+      %br
+
+      %p
+        Good luck,
+        %br
+        Secret Goals
+
+      %br
+        
+      %p
+        P.S. We'll keep bugging you until you take a moment to reflect :)
+
+      %p
+        You can change how often you want to be reminded (or stop the reminders)
+        on your
+        = "#{link_to("goal page", @emailing.auto_login_url(me_goal_path(@user_goal)))}.".html_safe
+
+  = render :partial => "mailer/about"

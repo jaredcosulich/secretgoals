@@ -27,6 +27,7 @@ Secretgoals::Application.routes.draw do
   namespace :admin do
     root :to => "admin#index"
     resources :blueprints
+    resources :emails
   end
 
   # The priority is based upon order of creation:

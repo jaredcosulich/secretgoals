@@ -1,0 +1,37 @@
+%tr
+  %td
+    %div{:style => "height: 6px;"}
+%tr
+  %td{:style => "padding: 12px; border: 1px solid #ccc"}
+    %p
+      = image_tag("http://#{Rails.application.host}/images/question_small.png", :alt => "About", :size => "20x20", :style => "vertical-align: -3px;")
+      About Secret Goals
+    %p
+      Secret Goals is the first totally anonymous community of people trying to achieve their goals.
+      The secret nature of Secret Goals makes it easy to talk openly and honestly about your progress, give and receive support,
+      and provide tips and tricks, all without having to worry about what other people think.
+      Hopefully it will help you achieve your goals.
+    -#
+      %p
+        Read more
+        = link_to("about Secret Goals", "http://www.secretgoals.com")
+    %br
+    %div
+      = image_tag("http://#{Rails.application.host}/images/question_small.png", :alt => "About", :size => "20x20", :style => "vertical-align: -3px;")
+      About Irrational Design
+    %p
+      = link_to("Irrational Design", "http://www.irrationaldesign.com")
+      is a small company based out of San Francisco. We focus on making easy to use and fun products
+      that help with all aspects of your life. Check out our other products when you have a chance:
+      .site
+        = link_to(image_tag("http://irrationaldesign.com/images/logos/charity_birthday_square.png", :alt => "Charity Birthday", :size => "75x75", :style => "border: none; vertical-align: middle; float: left; margin-right: 12px;"), "http://www.charitybirthday.com")
+        = link_to("Charity Birthday", "http://www.charitybirthday.com", :style => "display: block; padding: 12px 0;")
+        Donate your birthday to charity.
+      .site{:style => "clear: left; padding-top: 12px;"}
+        = link_to(image_tag("http://irrationaldesign.com/images/logos/secret_goals_square_logo.png", :alt => "Secret Goals", :size => "75x75", :style => "border: none; vertical-align: middle; float: left; margin-right: 12px;"), "http://www.secretgoals.com")
+        = link_to("Secret Goals", "http://www.secretgoals.com", :style => "display: block; padding: 6px 0 12px 0;")
+        The ups and downs of achieving your goals, shared openly, honestly, secretly.
+      .site{:style => "clear: left; padding-top: 12px;"}
+        = link_to(image_tag("http://irrationaldesign.com/images/logos/matching_game_square.png", :alt => "The Matching Game", :size => "75x75", :style => "border: none; vertical-align: middle; float: left; margin-right: 12px;"), "http://www.thematchinggame.com")
+        = link_to("The Matching Game", "http://www.thematchinggame.com", :style => "display: block; padding: 12px 0;")
+        Online dating meets the age-old art of matchmaking.

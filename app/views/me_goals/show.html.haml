@@ -4,7 +4,23 @@
   %h2.goal_title
     My Goal:
     = link_to("I want to #{@goal.title}", goal_path(@goal))
+  Don't let me go more than
+  = @user_goal.notification_delay_text
+  without an update.
+  %a.lightbox{:href => "#edit_notification_delay"}
+    = "(<span style='text-decoration: underline;'>edit</edit>)".html_safe
+  %br
   = link_to("View everyone's updates on this goal >", goal_path(@goal))
+
+  #edit_notification_delay{:style => "display:none;"}
+    = form_for @user_goal, :url => me_goal_path(@user_goal), :html => {:method => "PUT"} do |f|
+      = f.label :notification_delay, "How often should we check in on your progress?"
+      %br
+      Don't let me go more than
+      = f.select :notification_delay, UserGoal.notification_delay_options
+      without an update.
+      %br
+      = f.submit "Update"
 
 .sidebar
   - if current_user.user_goals.length > 1

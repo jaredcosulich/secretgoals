@@ -26,4 +26,22 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   config.global_fixtures = :all
+
+  config.before(:each) do
+    ActionMailer::Base.deliveries.clear
+  end
 end
+
+def verify_only_delayed_delivery(recipient_email, body_regex)
+  job = Delayed::Job.all.only
+  job.should be_present
+  job.invoke_job
+  verify_only_delivery(recipient_email, body_regex)
+end
+
+def verify_only_delivery(recipient_email, body_regex)
+  message = ActionMailer::Base.deliveries.only
+  message.to_addrs.first.to_s.should include(recipient_email)
+  message.body.should =~ body_regex
+end
+

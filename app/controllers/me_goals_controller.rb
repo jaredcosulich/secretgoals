@@ -1,6 +1,6 @@
 class MeGoalsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :load_user_goal, :only => [:show, :add_update]
+  before_filter :load_user_goal, :only => [:update, :show, :add_update]
 
   def index
     redirect_to (user_goals = current_user.user_goals).empty? ? root_path : me_goal_path(user_goals.first)
@@ -22,6 +22,11 @@ class MeGoalsController < ApplicationController
     goal = Goal.find_or_create_by_title(params[:goal][:title])
     user_goal = current_user.user_goals.create(:goal => goal)
     redirect_to me_goal_path(user_goal)
+  end
+
+  def update
+    @user_goal.update_attributes(params[:user_goal])
+    redirect_to me_goal_path(@user_goal)
   end
 
   protected
