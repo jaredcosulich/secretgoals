@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101213215149) do
+ActiveRecord::Schema.define(:version => 20101214003550) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                              :default => "", :null => false
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(:version => 20101213215149) do
     t.datetime "updated_at"
   end
 
+  create_table "emailings", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "email_name"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "emailings", ["user_id"], :name => "index_emailings_on_user_id"
+
   create_table "goal_taggings", :force => true do |t|
     t.integer  "goal_id",    :null => false
     t.integer  "tag_id",     :null => false
@@ -54,6 +64,24 @@ ActiveRecord::Schema.define(:version => 20101213215149) do
   end
 
   add_index "goals", ["permalink"], :name => "index_goals_on_permalink", :unique => true
+
+  create_table "link_clicks", :force => true do |t|
+    t.integer  "link_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "link_clicks", ["link_id"], :name => "index_link_clicks_on_link_id"
+
+  create_table "links", :force => true do |t|
+    t.string   "source_type"
+    t.integer  "source_id"
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "links", ["source_type", "source_id"], :name => "index_links_on_source_type_and_source_id"
 
   create_table "tags", :force => true do |t|
     t.string   "title"
@@ -100,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20101213215149) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "authentication_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

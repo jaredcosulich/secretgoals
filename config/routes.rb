@@ -4,6 +4,7 @@ Secretgoals::Application.routes.draw do
   root :to => "home#index"
   match '/feedback' => "home#feedback", :method => :post, :as => "feedback"
   match '/success_story' => "home#feedback", :method => :post, :as => "success_story"
+  match '/link/:link/:token' => "links#index", :as => "link"
 
   resources :goals do
     collection {post :go}
