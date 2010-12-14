@@ -14,6 +14,8 @@ class Update < ActiveRecord::Base
     where("user_goal_id in (select id from user_goals where goal_id in (select goal_id from goal_taggings where tag_id = ?))", tag.id)
   }
 
+  after_create :notify_admin
+
   def goal
     user_goal.goal
   end
@@ -34,5 +36,11 @@ class Update < ActiveRecord::Base
     end
     "#{text}_status"
   end
+
+
+  def notify_admin
+    AdminMailer.notify("New Secret Goal Update", "An update was created:", :update => self, :user_goal => user_goal, :user => user_goal.user, :goal => user_goal.goal).deliver
+  end
+
 
 end
