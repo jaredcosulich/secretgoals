@@ -3,6 +3,16 @@ h2.goal_title {
 }
 
 .me_goals_show {
+  #facebox {
+    .widget_title, .lightboxed_goal_title {
+      font-weight: bold;
+      font-size: larger;
+    }
+    .lightboxed_goal_title {
+      margin-bottom: 10px;
+    }
+  }
+
   .dashboard {
     @include column(24);
     margin: 30px 0;
