@@ -13,6 +13,14 @@ describe UpdateReminder do
     @user_goal.reload.last_emailed_update_reminder.should be > 5.minutes.ago
   end
 
+  it "should not send a reminder if notification_delay is nil" do
+    @user_goal.update_attributes(:notification_delay => nil)
+    @user_goal.updates.create(:status => 4, :comment => "doesn't matter", :created_at => 73.hours.ago)
+    ActionMailer::Base.deliveries.clear
+    UpdateReminder.send_reminders
+    ActionMailer::Base.deliveries.length.should == 0
+  end
+
   it "should not send a reminder to people who have updated in less than notification_delay days" do
     @user_goal.updates.create(:status => 4, :comment => "doesn't matter", :created_at => 71.hours.ago)
     ActionMailer::Base.deliveries.clear
