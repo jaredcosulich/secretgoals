@@ -1,7 +1,17 @@
 - params[:goal] = @goal.title if @goal.present?
 = form_for :goal, :url => me_goals_path, :html => {:class => "register"} do |f|
   .big_form_fields.goal_fields
-    = f.label :title, "I want to"
+    = f.label :title, "What is your goal?"
+    %br
+    I want to
     = f.text_field :title, :value => (params[:goal] || params[:register][:goal][:title] rescue "")
+
+  = f.fields_for :user_goal do |ugf|
+    .big_form_fields
+      = ugf.label :notification_delay, "How often should we check in on your progress?"
+      %br
+      Don't let me go more than
+      = ugf.select :notification_delay, UserGoal.notification_delay_options
+      without an update.
 
   = f.submit "Get Started", :class => "big_blue"

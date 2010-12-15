@@ -4,9 +4,12 @@
   %h2.goal_title
     My Goal:
     = link_to("I want to #{@goal.title}", goal_path(@goal))
-  Don't let me go more than
-  = @user_goal.notification_delay_text
-  without an update.
+  - if @user_goal.notification_delay.nil?
+    I'd rather not receive any reminders about this goal.
+  - else
+    Don't let me go more than
+    = @user_goal.notification_delay_text
+    without an update.
   %a.lightbox{:href => "#edit_notification_delay"}
     = "(<span style='text-decoration: underline;'>edit</edit>)".html_safe
   %br

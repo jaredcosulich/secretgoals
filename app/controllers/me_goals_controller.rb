@@ -20,7 +20,7 @@ class MeGoalsController < ApplicationController
     redirect_to :back and return unless params[:goal].present? && params[:goal][:title].present?
 
     goal = Goal.find_or_create_by_title(params[:goal][:title])
-    user_goal = current_user.user_goals.create(:goal => goal)
+    user_goal = current_user.user_goals.create(params[:goal][:user_goal].merge(:goal => goal))
     redirect_to me_goal_path(user_goal)
   end
 
