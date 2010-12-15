@@ -75,18 +75,22 @@ form {
     vertical-align: middle;
     @include column(19);
     h3 {
+      display: block;
+      float: left;
       line-height: 40px;
       color: white;
-      display: inline;
-      padding: 0;
+      padding: 3px 0 0 0;
+      margin: 0 6px 0 0;
     }
     form {
-      display: inline;
+      line-height: 40px;
+      display: block;
+      float: left;
     }
     input#title {
       font-style: italic;
       font-size: 14pt;
-      @include column(6);
+      @include column(7);
       float: none;
       color: $darkgrey;
       padding: 0 0 0 3px;
