@@ -1,0 +1,18 @@
+%h2 Change your password
+
+= form_for :user, :url => user_password_path, :html => {:method => :put} do |f|
+  = devise_error_messages!
+  = f.hidden_field :reset_password_token
+
+  %p
+    = f.label :password
+    %br
+    = f.password_field :password
+
+  %p
+    = f.label :password_confirmation
+    %br
+    = f.password_field :password_confirmation
+
+  %p
+    = f.submit "Change my password"
