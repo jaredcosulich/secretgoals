@@ -15,7 +15,7 @@ module Secretgoals
       g.test_framework :rspec
       g.helper false
     end
-
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -58,7 +58,9 @@ module Secretgoals
         when "production" : "www.secretgoals.com"
         when "staging" : "staging.secretgoals.com"
         else "#{Rails.env}.secretgoals.com"
-      end
+                               end
+
+      config.action_mailer.default_url_options = {:host => Rails.application.host}
     end
 
   end
