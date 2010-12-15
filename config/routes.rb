@@ -10,6 +10,7 @@ Secretgoals::Application.routes.draw do
     collection {post :go}
   end
   resources :tags
+  resources :updates
 
   resource :register, :controller => "register"
 

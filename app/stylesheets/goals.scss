@@ -121,9 +121,9 @@ h2.goal_title {
   h3 {
     margin-bottom: 10px;
   }
-  border: 1px solid $grey;
+  border-bottom: 1px solid $grey;
+  border-right: 1px solid $grey;
   .update {
-    border-bottom: 1px solid $grey;
     background-color: $update_grey;
     margin-bottom: 10px;
 
@@ -134,7 +134,8 @@ h2.goal_title {
     .status {
       vertical-align: top;
       background: white url("/images/update_corner.gif") right top no-repeat;
-      border-bottom: 1px solid $grey;
+      border-top: 1px solid $grey;
+      border-left: 1px solid $grey;
       padding: 0;
       width: 100px;
       text-align: center;
@@ -158,7 +159,7 @@ h2.goal_title {
     }
 
     .update_content {
-      border-bottom: 1px solid $grey;
+      border-top: 1px solid $grey;
       padding: 10px;
     }
     .goal_details {
@@ -173,5 +174,27 @@ h2.goal_title {
       font-size: smaller;
     }
 
+  }
+  .replies {
+    padding: 0;
+    border-top: 1px solid $grey;
+    .reply, .more {
+      padding: 5px 10px 5px 30px;
+      margin-left: 40px;
+      background: {
+        color: $grey;
+        position: 5px 2px;
+        repeat: no-repeat;
+      }
+    }
+    .congratulation {
+      background-image: url("/images/congratulation.png");
+    }
+    .reply {
+      background-image: url("/images/reply.png");
+    }
+    .support {
+      background-image: url("/images/support.png");
+    }
   }
 }

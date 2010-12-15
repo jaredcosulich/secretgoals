@@ -1,10 +1,11 @@
 class Update < ActiveRecord::Base
   belongs_to :user_goal
+  has_many :replies
 
   default_scope order("updates.created_at desc")
   scope :latest, lambda { |limit| full.limit(limit) }
 
-  scope :full, includes(:user_goal => {:goal => :tags})
+  scope :full, includes([{:user_goal => {:goal => :tags}}, :replies])
 
   scope :feeling_good, where("status > 6")
   scope :feeling_ok, where("status BETWEEN 4 AND 6")
@@ -40,6 +41,10 @@ class Update < ActiveRecord::Base
 
   def notify_admin
     AdminMailer.notify("New Secret Goal Update", "An update was created:", :update => self, :user_goal => user_goal, :user => user_goal.user, :goal => user_goal.goal).deliver
+  end
+
+  def to_param
+    id.to_obfuscated
   end
 
 

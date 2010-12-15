@@ -1,0 +1,23 @@
+- @title = "#{@goal.title.capitalize} : #{truncate @update.comment, :length => 15}"
+
+.main
+  %h2.goal_title
+    The goal:
+    %span
+      = link_to @goal.title, goal_path(@goal)
+  - if @goal.tags.present?
+    %h4
+      Tags:
+      = @goal.tags.collect { |tag| link_to(tag.title, tag_path(tag)) }.join(", ").html_safe
+
+.sidebar
+
+.main
+  %h4
+    = "Update on #{@update.created_at.strftime("%b. %d %Y")}:"
+
+  = @update.comment
+
+.sidebar
+
+  = render "ads/wide_skyscraper"

@@ -5,5 +5,10 @@ namespace :spec do
       ENV['FIXTURES_PATH'] = "spec/fixtures"
       Rake::Task["db:fixtures:load"].invoke
     end
+
+    desc "rebuild the fixtures if necessary"
+    task :rebuild => :environment do
+      require "#{Rails.root}/spec/support/fixture_builder"
+    end
   end
 end

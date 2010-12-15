@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101214200605) do
+ActiveRecord::Schema.define(:version => 20101215190309) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                              :default => "", :null => false
@@ -82,6 +82,18 @@ ActiveRecord::Schema.define(:version => 20101214200605) do
   end
 
   add_index "links", ["source_type", "source_id"], :name => "index_links_on_source_type_and_source_id"
+
+  create_table "replies", :force => true do |t|
+    t.integer  "update_id"
+    t.integer  "commenter_id"
+    t.string   "reply_type"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "replies", ["commenter_id"], :name => "index_replies_on_commenter_id"
+  add_index "replies", ["update_id"], :name => "index_replies_on_update_id"
 
   create_table "tags", :force => true do |t|
     t.string   "title"

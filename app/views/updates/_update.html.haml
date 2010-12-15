@@ -12,9 +12,18 @@
     .comment
       = simple_format(update.comment)
     .timestamp
-      = time_ago_in_words(update.created_at)
+      = link_to time_ago_in_words(update.created_at), update_path(update)
       ago
     - if @goal.nil?
       .goal_details
         = update.goal.tags.map{ |t| link_to(t.title, tag_path(t)) }.join(", ").html_safe
+- if update.replies.present?
+  %tr
+    %td.replies{:colspan => 2}
+      - update.replies[0..1].each do |reply|
+        .reply{:class => reply.reply_type}
+          = reply.comment
+      - if update.replies.length > 2
+        .more
+          = link_to "Read all #{update.replies.length} replies >", update_path(update)
 
