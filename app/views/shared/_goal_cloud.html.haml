@@ -1,4 +1,4 @@
 .goals.cloud
-  %h3 What's Your Goal?
+  %h3.close_header What's Your Goal?
   - @goals.shuffle.each do |goal|
     = link_to goal['title'], goal_path(goal['permalink']), :class => "size_#{goal['bucket']}"

@@ -25,7 +25,7 @@
             Keeping your goals secret may help you achieve them.
             = link_to("Read the research >", "")
         =# link_to "secret goals", root_path, :title => "Secret Goals", :alt => "Secret Goals", :class => "logo"
-        = link_to image_tag("logo.jpg"), root_path, :title => "Secret Goals", :alt => "Secret Goals", :class => "logo"
+        = link_to image_tag("logo.png"), root_path, :title => "Secret Goals", :alt => "Secret Goals", :class => "logo"
     #nav_bar
       .container
         .go_goals
@@ -58,11 +58,10 @@
         .right
           %a.lightbox{:href => "#feedback"} Support / Feedback
           &nbsp; &nbsp; &nbsp;
-          -#
-            %a.lightbox{:href => "#success_story"} Success Stories
-            &nbsp; &nbsp; &nbsp;
-            = link_to("About", about_index_path)
-            &nbsp; &nbsp; &nbsp;
+          %a.lightbox{:href => "#success_story"} Success Stories
+          &nbsp; &nbsp; &nbsp;
+          = link_to("About", about_index_path)
+          &nbsp; &nbsp; &nbsp;
           = link_to("&copy Irrational Design 2011".html_safe, "http://www.irrationaldesign.com", :target => "_blank")
           /
             = current_user.id if current_user
@@ -109,11 +108,11 @@
         Thanks for your message!
       .failure{:style => "display:none;"}
         There was an error. Please try again in a little bit or email us at
-        = mail_to "support@insightster.com"
+        = mail_to "support@secretgoals.com"
         \.
 
     #success_story.email_us{:style => "display: none;"}
-      = form_for :success_story, :url => success_story_path, :remote => true, :html => {:id => "success_story_form", :class => "email_us_form"}  do |f|
+      = form_for :feedback, :url => feedback_path, :remote => true, :html => {:id => "success_story_form", :class => "email_us_form"}  do |f|
         %p
           If Secret Goals has helped you achieve your goals we'd love to hear about it.
           Of course you can also keep it secret :)
@@ -132,7 +131,7 @@
         Thanks for your message!
       .failure{:style => "display:none;"}
         There was an error. Please try again in a little bit or email us at
-        = mail_to "support@insightster.com"
+        = mail_to "support@secretgoals.com"
         \.
 
 

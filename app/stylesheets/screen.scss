@@ -130,6 +130,10 @@ form {
   @include column(8, true);
 }
 
+.close_header {
+  margin-bottom: 3px;
+}
+
 .notice, .alert {
   padding: 30px;
   background-color: #fffa9c;
@@ -221,7 +225,7 @@ input.big_blue {
 }
 
 .cloud {
-  h3 { font-style: italic; margin-bottom: 3px; }
+  h3 { font-style: italic; }
   .size_0 { font-size: 18pt; }
   .size_1 { font-size: 14pt; }
   .size_2 { font-size: 12pt; }
