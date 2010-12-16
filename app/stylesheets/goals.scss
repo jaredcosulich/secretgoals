@@ -179,6 +179,8 @@ h2.goal_title {
     padding: 0;
     border-top: 1px solid $grey;
     .reply, .more {
+      border-bottom: 1px solid $grey;
+      border-left: 1px solid $grey;
       padding: 5px 10px 5px 30px;
       margin-left: 40px;
       background: {
