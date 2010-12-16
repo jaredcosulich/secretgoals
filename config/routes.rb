@@ -10,7 +10,10 @@ Secretgoals::Application.routes.draw do
     collection {post :go}
   end
   resources :tags
-  resources :updates
+  resources :updates do
+    member {post :add_reply}
+  end
+
 
   resource :register, :controller => "register"
 
@@ -21,6 +24,7 @@ Secretgoals::Application.routes.draw do
   end
 
   match '/me/goals' => 'me_goals#index', :as => :user_root
+  match "/me" => redirect("/me/goals")
 
   resources :about
   resources :beta_requests

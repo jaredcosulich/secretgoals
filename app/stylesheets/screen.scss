@@ -26,8 +26,13 @@ body {
   font-size: 90%;
   background-color: $grey;
   a, a:visited, a:hover {
-    text-decoration: none;
     color: $blue;
+  }
+  a, a:visited, a.lightbox:hover {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
   }
 }
 
@@ -57,14 +62,10 @@ form {
     margin-bottom: 3px;
     color: $blue;
   }
-  .research {
+  .tagline {
     color: $blue;
     float: right;
     margin-top: 22px;
-    a {
-      color: white;
-      text-decoration: none;
-    }
   }
 }
 
@@ -113,7 +114,6 @@ form {
     float: right;
     a {
       color: white;
-      text-decoration: none;
     }
   }
 }
@@ -178,7 +178,7 @@ form {
   }
 }
 
-.tagline {
+h2.tagline {
   margin-bottom: 10px;
 }
 

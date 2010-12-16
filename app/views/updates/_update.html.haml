@@ -5,6 +5,8 @@
     = update.status_text
   %td.update_content
     - if @goal.nil?
+      .tags
+        = update.goal.tags.map{ |t| link_to(t.title, tag_path(t)) }.join(", ").html_safe
       %h6
         %span.goal_label goal:
         = link_to(update.goal.title, goal_path(update.goal))
@@ -12,16 +14,18 @@
     .comment
       = simple_format(update.comment)
     .timestamp
-      = link_to time_ago_in_words(update.created_at), update_path(update)
-      ago
-    - if @goal.nil?
-      .goal_details
-        = update.goal.tags.map{ |t| link_to(t.title, tag_path(t)) }.join(", ").html_safe
+      = link_to "#{time_ago_in_words(update.created_at)} ago", update_path(update)
+
+    .reply_actions{:data => {:add_update_url => add_reply_update_path(update), :update_comment => truncate(update.comment, :length => 200)}}
+      %a.lightbox.reply_action{:href => "#reply_form", :data => {:reply_type => "reply", :prompt => "Send this person a reply to their progress update:"}}= "#{image_tag("reply.png")} reply".html_safe
+      %a.lightbox.reply_action{:href => "#reply_form", :data => {:reply_type => "support", :prompt => "Send this person a message of support:"}}= "#{image_tag("support.png")} support".html_safe
+      %a.lightbox.reply_action{:href => "#reply_form", :data => {:reply_type => "congratulation", :prompt => "Congratulate this person on their progress:"}}= "#{image_tag("congratulation.png")} congratulation".html_safe
+
 - if update.replies.present?
   %tr
     %td.replies{:colspan => 2}
-      - update.replies[0..1].each do |reply|
-        .reply{:class => reply.reply_type}
+      - update.replies[0..1].each_with_index do |reply, index|
+        .reply_type{:class => reply.reply_type, :style => (index == update.replies.length - 1 ? "border-bottom: none;": nil)}
           = reply.comment
       - if update.replies.length > 2
         .more

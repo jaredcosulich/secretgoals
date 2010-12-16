@@ -1,0 +1,11 @@
+#reply_form{:style => "display: none;"}
+  %h6 Their Message:
+  .update_comment
+  %br
+  %br
+  = form_for :reply do |f|
+    = f.hidden_field :reply_type
+    = f.label :comment, "", :class => "reply_type"
+    = f.text_area :comment
+    %p
+      = f.submit "Send Message"

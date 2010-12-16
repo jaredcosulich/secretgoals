@@ -162,32 +162,42 @@ h2.goal_title {
       border-top: 1px solid $grey;
       padding: 10px;
     }
-    .goal_details {
-      margin-top: 10px;
+    .tags {
+      float: right;
       font-size: smaller;
-      a {
-        text-decoration: none;
-      }
     }
     .timestamp {
       float: right;
       font-size: smaller;
+      margin-top: 5px;
+    }
+    .reply_action {
+      line-height: 22px;
+      font-size: smaller;
+      img {
+        vertical-align: -5px;
+      }
+      padding-right: 20px;
     }
 
   }
   .replies {
     padding: 0;
     border-top: 1px solid $grey;
-    .reply, .more {
+    .reply_type, .more {
       border-bottom: 1px solid $grey;
       border-left: 1px solid $grey;
-      padding: 5px 10px 5px 30px;
+      padding: 5px 10px 5px 40px;
       margin-left: 40px;
       background: {
         color: #e5e3e3;
-        position: 5px 2px;
+        position: 10px 2px;
         repeat: no-repeat;
       }
+    }
+
+    .more {
+      border-bottom: none;
     }
     .congratulation {
       background-image: url("/images/congratulation.png");
