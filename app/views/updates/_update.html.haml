@@ -24,9 +24,11 @@
 - if update.replies.present?
   %tr
     %td.replies{:colspan => 2}
-      - update.replies[0..1].each_with_index do |reply, index|
-        .reply_type{:class => reply.reply_type, :style => (index == update.replies.length - 1 ? "border-bottom: none;": nil)}
-          = reply.comment
+      .reply_type{:class => update.replies.first.reply_type}= update.replies.first.comment
+      - if update.replies.length > 1
+        - if update.replies.length > 2
+          .reply_type= "... #{pluralize(update.replies.length - 2, "other reply", "other replies")} ..."
+      .reply_type{:class => update.replies.last.reply_type, :style => "border-bottom: none;"}= update.replies.last.comment
       - if update.replies.length > 2
         .more
           = link_to "Read all #{update.replies.length} replies >", update_path(update)
