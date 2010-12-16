@@ -5,9 +5,9 @@ class Admin::EmailsController < AdminController
 
   def show
     if params[:args].blank?
-      email = Mailer.send(params[:id], 1, fake_emailing)
+      email = Mailer.send(params[:id], User.first.id, fake_emailing)
     else
-      email = Mailer.send(params[:id], 1, fake_emailing, *params[:args])
+      email = Mailer.send(params[:id], User.first.id, fake_emailing, *params[:args])
     end
     render :text => email.body
   end

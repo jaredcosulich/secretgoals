@@ -17,7 +17,15 @@ class Mailer < ActionMailer::Base
     )
   end
 
-
+  def notify_new_reply(user_id, emailing, reply_id)
+    @user = User.find(user_id)
+    @emailing = emailing
+    @reply = Reply.find(reply_id, :include => :update)
+    mail(
+      :to => nice_email_address_for_user(@user),
+      :subject => "Someone has #{@reply.action_text}"
+    )
+  end
 
   def nice_email_address_for_user(user)
     nice_email_address(user.email, "secret person")

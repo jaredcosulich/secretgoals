@@ -1,0 +1,21 @@
+%table{:style => "width: 100%; font-size: 11pt;"}
+  %tr
+    %td{:style => "padding: 12px; border: 1px solid #ccc"}
+      %p
+        Someone has
+        = @reply.action_text
+
+      %b Your Update
+      %p= @reply.update.comment
+
+      %br
+
+      %b Their Reply
+      %p= @reply.comment
+
+      %p
+        You can reply to this message
+        = link_to("here >", @emailing.auto_login_url(update_path(@reply.update)))
+
+
+  = render :partial => "mailer/about"
