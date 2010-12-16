@@ -1,4 +1,4 @@
-%tr.update[update]{:data => {:created_at => update.created_at.rfc822, :status => update.status}}
+%tr.update{:data => {:created_at => update.created_at.rfc822, :status => update.status}, :id => "update_#{update.to_param}"}
   %td.status
     .status_color{:class => update.status_class}
       = update.status

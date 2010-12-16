@@ -11,7 +11,7 @@ class UpdatesController < ApplicationController
 
   def add_reply
     @update.replies.create(params[:reply].merge(:commenter => current_user))
-    redirect_to :back
+    redirect_to request.headers["Referer"] + "#update_#{@update.to_param}"
   end
 
   private
