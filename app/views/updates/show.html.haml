@@ -13,10 +13,7 @@
 .sidebar
 
 .main
-  %h4
-    = "Update on #{@update.created_at.strftime("%b. %d %Y")}:"
-
-  = @update.comment
+  = render "updates/stream"
 
 .sidebar
 

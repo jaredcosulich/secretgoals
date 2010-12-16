@@ -117,11 +117,11 @@ h2.goal_title {
   }
 }
 
-.update_stream {
+table.update_stream {
   h3 {
     margin-bottom: 10px;
   }
-  border-bottom: 1px solid $grey;
+  border-top: 1px solid $grey;
   border-right: 1px solid $grey;
   .update {
     background-color: $update_grey;
@@ -134,7 +134,7 @@ h2.goal_title {
     .status {
       vertical-align: top;
       background: white url("/images/update_corner.gif") right top no-repeat;
-      border-top: 1px solid $grey;
+      border-bottom: 1px solid $grey;
       border-left: 1px solid $grey;
       padding: 0;
       width: 100px;
@@ -159,7 +159,7 @@ h2.goal_title {
     }
 
     .update_content {
-      border-top: 1px solid $grey;
+      border-bottom: 1px solid $grey;
       padding: 10px;
     }
     .tags {
@@ -181,11 +181,24 @@ h2.goal_title {
     }
 
   }
+
+  td.replies, .reply_type {
+    border-bottom: 1px solid $grey;
+    .reply_type:last-child {
+      border-bottom: none;
+    }
+  }
+
+  tr:last-child .replies {
+    border-bottom: none;
+    .reply_type:last-child {
+      border-bottom: 1px solid $grey;
+    }
+  }
+
   .replies {
     padding: 0;
-    border-top: 1px solid $grey;
     .reply_type, .more {
-      border-bottom: 1px solid $grey;
       border-left: 1px solid $grey;
       padding: 5px 10px 5px 40px;
       margin-left: 40px;

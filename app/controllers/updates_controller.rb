@@ -7,6 +7,7 @@ class UpdatesController < ApplicationController
 
   def show
     @goal = @update.goal
+    @updates = [@update]
   end
 
   def add_reply
