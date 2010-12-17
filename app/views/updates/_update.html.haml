@@ -25,14 +25,13 @@
   %tr
     %td.replies{:colspan => 2}
       - if @update.present?
-        - @update.replies.each do |reply|
-          .reply_type{:class => reply.reply_type}= reply.comment
+        = render @update.replies
       - else
-        .reply_type{:class => update.replies.first.reply_type}= update.replies.first.comment
+        = render update.replies.first
         - if update.replies.length > 1
           - if update.replies.length > 2
             .reply_type= link_to "... #{pluralize(update.replies.length - 2, "other reply", "other replies")} ...", update_path(update)
-          .reply_type{:class => update.replies.last.reply_type}= update.replies.last.comment
+          = render update.replies.last
         - if update.replies.length > 2
           .more
             = link_to "Read all #{update.replies.length} replies >", update_path(update)
