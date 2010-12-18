@@ -7,6 +7,9 @@ class Reply < ActiveRecord::Base
 
   after_create :notify_new_reply
 
+  default_scope order("replies.created_at desc")
+
+
   def action_text
     case reply_type
       when "support": "sent you a message of support"
