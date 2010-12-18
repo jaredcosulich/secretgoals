@@ -12,7 +12,7 @@ class RegisterController < ApplicationController
     if @user.save
       sign_in(:user, @user)
       if params[:register] && params[:register][:goal] && params[:register][:goal][:title].present?
-        user_goal = @user.user_goals.create(params[:register][:user_goal].merge(:goal => Goal.find_or_create_by_title(params[:register][:goal][:title]))) 
+        user_goal = @user.user_goals.create(params[:register][:user_goal].merge(:goal => Goal.find_or_create_by_title(params[:register][:goal][:title].downcase))) 
         redirect_to me_goal_path(user_goal)
       else
         redirect_to root_path
