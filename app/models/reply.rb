@@ -7,7 +7,7 @@ class Reply < ActiveRecord::Base
 
   after_create :notify_new_reply
 
-  default_scope order("replies.created_at desc")
+  default_scope order("replies.created_at asc")
 
 
   def action_text
