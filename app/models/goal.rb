@@ -9,7 +9,7 @@ class Goal < ActiveRecord::Base
   has_many :tags, :through => :goal_taggings
 
 
-  def self.most_updated(limit=30, bucket_count = 10)
+  def self.most_updated(limit=20, bucket_count = 6)
     goal_sql = <<-SQL
       SELECT goals.id, title, permalink, goals.created_at, count(updates.id)
       FROM goals
