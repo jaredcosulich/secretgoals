@@ -24,6 +24,6 @@ class Reply < ActiveRecord::Base
   end
 
   def notify_admin
-    AdminMailer.notify("New Secret Goals Reply", "A reply was created:", :reply => reply, :update => update).deliver
+    AdminMailer.notify("New Secret Goals Reply", "A reply was created:", :reply => self, :update => update).deliver
   end
 end
