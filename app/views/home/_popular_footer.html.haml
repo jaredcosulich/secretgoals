@@ -1,0 +1,4 @@
+%br
+%p
+  %b View All Goals Tagged:
+  = @tags.collect { |tag| link_to tag['title'], tag_path(tag['permalink']) }.join(", ").html_safe
