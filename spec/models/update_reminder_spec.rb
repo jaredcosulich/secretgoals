@@ -20,29 +20,13 @@ describe UpdateReminder do
     ActionMailer::Base.deliveries.length.should == 2
   end
 
-  it "should send an increasingly delayed reminder if person still does not respond" do
-    @user_goal.update_attributes(:notification_delay => 7, :created_at => 8.days.ago)
-    @user_goal.update_attribute(:last_emailed_update_reminder, 11.hours.ago)
+  it "should send a reminder email half way through notification delay if no update provided" do
+    @user_goal.update_attributes(:notification_delay => 31, :created_at => 32.days.ago)
+    @user_goal.update_attribute(:last_emailed_update_reminder, 30.days.ago)
     send_reminders
     ActionMailer::Base.deliveries.length.should == 0
 
-    @user_goal.update_attribute(:last_emailed_update_reminder, 13.hours.ago)
-    send_reminders
-    ActionMailer::Base.deliveries.length.should == 1
-
-    @user_goal.update_attribute(:last_emailed_update_reminder, 35.hours.ago)
-    send_reminders
-    ActionMailer::Base.deliveries.length.should == 0
-
-    @user_goal.update_attribute(:last_emailed_update_reminder, 37.hours.ago)
-    send_reminders
-    ActionMailer::Base.deliveries.length.should == 1
-
-    @user_goal.update_attribute(:last_emailed_update_reminder, 131.hours.ago)
-    send_reminders
-    ActionMailer::Base.deliveries.length.should == 0
-
-    @user_goal.update_attribute(:last_emailed_update_reminder, 133.hours.ago)
+    @user_goal.update_attribute(:last_emailed_update_reminder, 32.days.ago)
     send_reminders
     ActionMailer::Base.deliveries.length.should == 1
   end
