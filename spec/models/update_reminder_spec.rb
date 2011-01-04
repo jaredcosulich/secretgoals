@@ -20,6 +20,33 @@ describe UpdateReminder do
     ActionMailer::Base.deliveries.length.should == 2
   end
 
+  it "should send an increasingly delayed reminder if person still does not respond" do
+    @user_goal.update_attributes(:notification_delay => 7, :created_at => 8.days.ago)
+    @user_goal.update_attribute(:last_emailed_update_reminder, 11.hours.ago)
+    send_reminders
+    ActionMailer::Base.deliveries.length.should == 0
+
+    @user_goal.update_attribute(:last_emailed_update_reminder, 13.hours.ago)
+    send_reminders
+    ActionMailer::Base.deliveries.length.should == 1
+
+    @user_goal.update_attribute(:last_emailed_update_reminder, 35.hours.ago)
+    send_reminders
+    ActionMailer::Base.deliveries.length.should == 0
+
+    @user_goal.update_attribute(:last_emailed_update_reminder, 37.hours.ago)
+    send_reminders
+    ActionMailer::Base.deliveries.length.should == 1
+
+    @user_goal.update_attribute(:last_emailed_update_reminder, 131.hours.ago)
+    send_reminders
+    ActionMailer::Base.deliveries.length.should == 0
+
+    @user_goal.update_attribute(:last_emailed_update_reminder, 133.hours.ago)
+    send_reminders
+    ActionMailer::Base.deliveries.length.should == 1
+  end
+
   it "should not send a reminder if notification_delay is nil" do
     @user_goal.update_attributes(:notification_delay => nil)
     @user_goal.updates.create(:status => 4, :comment => "doesn't matter", :created_at => 73.hours.ago)
@@ -41,6 +68,7 @@ describe UpdateReminder do
   end
 
   def send_reminders
+    ActionMailer::Base.deliveries.clear
     Delayed::Job.delete_all
     UpdateReminder.send_reminders
     Delayed::Job.all.map(&:invoke_job)
