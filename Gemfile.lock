@@ -36,6 +36,9 @@ GEM
       haml (>= 3.0.4)
     configuration (1.2.0)
     daemons (1.1.0)
+    delayed_job (2.1.2)
+      activesupport (~> 3.0)
+      daemons
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
@@ -150,6 +153,7 @@ PLATFORMS
 
 DEPENDENCIES
   compass
+  delayed_job
   devise
   factory_girl_rails
   fixture_builder

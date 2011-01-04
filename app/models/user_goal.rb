@@ -17,7 +17,7 @@ class UserGoal < ActiveRecord::Base
   end
 
   def notify_admin
-    AdminMailer.notify("New Secret Goal User Goal", "A user goal was created:", :user => user, :user_goal => self, :goal => goal).deliver
+    AdminMailer.delay.notify("New Secret Goal User Goal", "A user goal was created:", :user => user, :user_goal => self, :goal => goal)
   end
 
   def self.notification_delay_options

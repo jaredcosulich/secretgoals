@@ -7,6 +7,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'compass'
 
+gem 'delayed_job'
 gem 'devise'
 gem 'permalink_fu'
 

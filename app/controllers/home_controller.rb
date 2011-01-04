@@ -5,9 +5,9 @@ class HomeController < ApplicationController
   end
 
   def feedback
-    AdminMailer.notify("Secret Goals Feedback from #{current_user.nil? ? 'anonymous' : current_user.email}",
+    AdminMailer.delay.notify("Secret Goals Feedback from #{current_user.nil? ? 'anonymous' : current_user.email}",
                          params[:feedback][:message],
-                         {:email => params[:feedback][:email], :current_user => current_user}).deliver
+                         {:email => params[:feedback][:email], :current_user => current_user})
     render :nothing => true
   end
 end

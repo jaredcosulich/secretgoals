@@ -16,6 +16,6 @@ class Reply < ActiveRecord::Base
   end
 
   def notify_new_reply
-    Emailing.deliver("notify_new_reply", update.user_goal.user_id, self.id)
+    Emailing.delay.deliver("notify_new_reply", update.user_goal.user_id, self.id)
   end
 end

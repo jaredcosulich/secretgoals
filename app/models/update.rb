@@ -41,7 +41,7 @@ class Update < ActiveRecord::Base
 
 
   def notify_admin
-    AdminMailer.notify("New Secret Goal Update", "An update was created:", :update => self, :user_goal => user_goal, :user => user_goal.user, :goal => user_goal.goal).deliver
+    AdminMailer.delay.notify("New Secret Goal Update", "An update was created:", :update => self, :user_goal => user_goal, :user => user_goal.user, :goal => user_goal.goal)
   end
 
   def to_param
