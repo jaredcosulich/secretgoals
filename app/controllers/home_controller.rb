@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def index
     @goals = Goal.most_updated
     @updates = Update.latest(10)
+    @tags = Tag.most_updated
   end
 
   def feedback

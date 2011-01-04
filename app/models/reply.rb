@@ -6,6 +6,10 @@ class Reply < ActiveRecord::Base
   validates_presence_of :comment
 
   after_create :notify_new_reply
+  after_create :notify_admin
+
+  default_scope order("replies.created_at asc")
+
 
   def action_text
     case reply_type
@@ -17,5 +21,9 @@ class Reply < ActiveRecord::Base
 
   def notify_new_reply
     Emailing.delay.deliver("notify_new_reply", update.user_goal.user_id, self.id)
+  end
+
+  def notify_admin
+    AdminMailer.notify("New Secret Goals Reply", "A reply was created:", :reply => self, :update => update).deliver
   end
 end

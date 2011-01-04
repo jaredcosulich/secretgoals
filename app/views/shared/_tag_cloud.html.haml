@@ -1,0 +1,4 @@
+.tags.cloud
+  %h3.close_header Popular Tags
+  - @tags.shuffle.each do |tag|
+    = link_to tag['title'], tag_path(tag['permalink']), :class => "size_#{tag['bucket']}"

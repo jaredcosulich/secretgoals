@@ -2,8 +2,7 @@
   %tr
     %td{:style => "padding: 12px; border: 1px solid #ccc"}
       %p
-        Someone has
-        = @reply.action_text
+        = "Someone has #{@reply.action_text}."
 
       %b Your Update
       %p= @reply.update.comment

@@ -17,6 +17,7 @@ $update_grey: #DAE0DA;
 $darkgrey: #555C6F;
 $red: #C24227;
 $green: #2B9044;
+$gold: #F1BD39;
 
 body {
   @include blueprint-typography(true);
@@ -213,7 +214,7 @@ input.big_blue {
   }
   .good_count {
     background:url("/images/thumbs_up.jpg") left center no-repeat;
-    .count { color: gold; }
+    .count { color: $gold; }
   }
   .ok_count {
     background:url("/images/ok.jpg") left center no-repeat;
