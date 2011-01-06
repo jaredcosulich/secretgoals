@@ -12,7 +12,7 @@
         = link_to(update.goal.title, goal_path(update.goal))
 
     .comment
-      = simple_format(update.comment)
+      = simple_format(auto_link(update.comment))
     .timestamp
       = link_to "#{time_ago_in_words(update.created_at)} ago", update_path(update)
 

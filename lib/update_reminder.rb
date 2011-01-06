@@ -6,10 +6,10 @@ class UpdateReminder
         FROM user_goals
         LEFT JOIN updates ON user_goals.id = updates.user_goal_id
         WHERE (
-           user_goals.last_emailed_update_reminder is null OR
-           user_goals.last_emailed_update_reminder + INTERVAL '12 hours' < now()
-         )
-      GROUP BY user_goals.id, user_goals.notification_delay, user_goals.created_at
+          user_goals.last_emailed_update_reminder is null OR
+          user_goals.last_emailed_update_reminder + (INTERVAL '1 day' * user_goals.notification_delay) < now()
+        )
+      GROUP BY user_goals.id, user_goals.notification_delay, user_goals.created_at, user_goals.last_emailed_update_reminder
       HAVING (GREATEST(MAX(updates.created_at), user_goals.created_at) + (user_goals.notification_delay * INTERVAL '1 day')) < now()
     SQL
 
@@ -24,3 +24,4 @@ class UpdateReminder
     end
   end
 end
+
