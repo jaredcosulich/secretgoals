@@ -5,6 +5,9 @@
       Secret Goals
       = ": #{@title}" if @title.present?
     %meta{:name => "description", :content => "The ups and downs of achieving your goals, shared openly, honestly, secretly. An anonymous community built to help you achieve your goals."}
+    %meta{:property => "og:title", content => "Secret Goals"}
+    %meta{:property => "og:description", content => "The ups and downs of achieving your goals, shared openly, honestly, secretly. An anonymous community built to help you achieve your goals."}
+    %meta{:property => "og:image", content => "http://www.secretgoals.com/images/secret_goals_square_logo.png"}
     = csrf_meta_tag
     = favicon_link_tag
 
