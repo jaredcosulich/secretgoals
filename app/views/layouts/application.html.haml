@@ -47,11 +47,7 @@
             &nbsp;
             = link_to("Sign Up", register_path)
     #content
-      .container
-        .tagline
-          %h3
-            The ups and downs of achieving your goals, shared openly, honestly, secretly.
-      
+      .container     
         #flash
           - if flash[:notice].present?
             .notice

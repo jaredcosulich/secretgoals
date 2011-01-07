@@ -1,9 +1,11 @@
 - @title = @tag.title.capitalize
 
 %h2.goal_title
-  Goals tagged:
-  %span
-    = @tag.title
+  %span.lighten goals tagged:
+  %span.italic= @tag.title
+
+= render "shared/tagline"
+
 .main
   - if @updates.present?
     = render "updates/stream"
@@ -11,6 +13,10 @@
     %ul
       - @goals.each do |goal|
         %li= link_to(goal.title, goal_path(goal))
+  = render "shared/popular_footer"
+  
 .sidebar
   = render "shared/update_counts", :subject => @tag, :subject_name => "goals with this tag"
   = render "ads/wide_skyscraper"
+  = render "shared/tag_cloud"
+  = render "shared/about"

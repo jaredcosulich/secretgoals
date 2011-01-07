@@ -7,9 +7,8 @@
 
 .main
   %h2.goal_title
-    The goal:
-    %span
-      = @goal.title
+    %span.lighten the goal:
+    %span.italic= @goal.title
   - if @goal.tags.present?
     %h4
       Tags:
@@ -19,11 +18,14 @@
   - if @updates.present?
     %a#add.big_blue{:href=> "javascript:void()"} Take on this goal!
 
+= render "shared/tagline"
+
 .main
   - if @updates.present?
     = render "updates/stream"
   - else
     = render "goals/register"
+  = render "shared/popular_footer"  
 
 
 .sidebar
@@ -33,6 +35,7 @@
     = render "shared/goal_cloud"
 
   = render "ads/wide_skyscraper"
+  = render "shared/about"
 
 :javascript
   $(function(){

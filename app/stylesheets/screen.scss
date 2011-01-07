@@ -56,6 +56,15 @@ form {
   @include container;
 }
 
+.lighten {
+  color: $grey;
+}
+
+.italic {
+  font-style: italic;
+}
+
+
 #header {
   background-color: $grey;
   padding-top: 2.5em;

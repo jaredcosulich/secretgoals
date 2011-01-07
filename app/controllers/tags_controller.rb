@@ -8,6 +8,7 @@ class TagsController < ApplicationController
     redirect_to root_path and return if @tag.nil?
     @updates = @tag.updates.latest(10)
     @goals = @tag.goals
+    @tags = Tag.most_updated
   end
 
 end
