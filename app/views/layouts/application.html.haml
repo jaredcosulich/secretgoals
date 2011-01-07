@@ -23,7 +23,7 @@
     #header
       .container
         .tagline
-          The ups and downs of achieving your goals, shared openly, honestly, secretly.
+          No judgement, just honest ups and downs.
           -#
             Keeping your goals secret may help you achieve them.
             = link_to("Read the research >", "")
@@ -48,6 +48,10 @@
             = link_to("Sign Up", register_path)
     #content
       .container
+        .tagline
+          %h3
+            The ups and downs of achieving your goals, shared openly, honestly, secretly.
+      
         #flash
           - if flash[:notice].present?
             .notice
@@ -55,6 +59,7 @@
           - if flash[:alert].present?
             .alert
               = flash[:alert]
+
         = yield
     #footer
       .container
