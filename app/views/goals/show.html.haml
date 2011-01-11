@@ -5,6 +5,8 @@
     %a#close.big_blue{:href=> "javascript:void()"} X
     = render current_user.nil? ? "register/form" : "me_goals/form"
 
+= render "shared/tagline"
+
 .main
   %h2.goal_title
     %span.lighten the goal:
@@ -17,8 +19,6 @@
 .sidebar
   - if @updates.present?
     %a#add.big_blue{:href=> "javascript:void()"} Take on this goal!
-
-= render "shared/tagline"
 
 .main
   - if @updates.present?

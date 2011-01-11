@@ -13,6 +13,7 @@ class GoalsController < ApplicationController
     else
       @goals = Goal.most_updated
       @goal = Goal.new(:title => params[:title])
+      @tags = Tag.most_updated
       render "goals/show"
     end
   end
