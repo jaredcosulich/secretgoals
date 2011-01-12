@@ -13,7 +13,7 @@ class UserGoal < ActiveRecord::Base
   after_create :notify_admin
 
   def to_param
-    id.to_obfuscated
+    "#{id.to_obfuscated}-#{goal.permalink}"
   end
 
   def notify_admin

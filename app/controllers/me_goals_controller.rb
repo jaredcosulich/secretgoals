@@ -31,7 +31,7 @@ class MeGoalsController < ApplicationController
 
   protected
   def load_user_goal
-    @user_goal = current_user.user_goals.find_by_id(Integer.unobfuscate(params[:id]))
+    @user_goal = current_user.user_goals.find_by_id(Integer.unobfuscate(params[:id].split(/-/).first))
     redirect_to me_goals_path if @user_goal.nil?
   end
 end
