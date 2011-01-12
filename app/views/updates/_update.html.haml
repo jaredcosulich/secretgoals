@@ -35,3 +35,19 @@
         - if update.replies.length > 2
           .more
             = link_to "Read all #{update.replies.length} replies >", update_path(update)
+
+- if update_counter == 3 && (@goal.present? || @tag.present?)
+  %tr
+    %td.replies{:colspan => 2, :style => "border-left: 1px solid #9F9997;"}
+      .in_stream_ad{:style => 'width: 468px; margin: 10px auto;'}
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-1657370723332984";
+        /* SecretGoals - In Stream */
+        google_ad_slot = "8786613553";
+        google_ad_width = 468;
+        google_ad_height = 60;
+        //-->
+        </script>
+        <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
