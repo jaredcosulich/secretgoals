@@ -36,7 +36,7 @@
           .more
             = link_to "Read all #{update.replies.length} replies >", update_path(update)
 
-- if update_counter == 3 && (@goal.present? || @tag.present?)
+- if (update_counter == 2 || update_counter == 7) && (@goal.present? || @tag.present?)
   %tr
     %td.replies{:colspan => 2, :style => "border-left: 1px solid #9F9997;"}
       .in_stream_ad{:style => 'padding: 10px; margin: 10px 38px; border: 1px solid #9F9997; background-color: #E5E3E3;'}
