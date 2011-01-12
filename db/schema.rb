@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110103235737) do
+ActiveRecord::Schema.define(:version => 20110111182545) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                              :default => "", :null => false
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20110103235737) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "params"
   end
 
   add_index "emailings", ["user_id"], :name => "index_emailings_on_user_id"

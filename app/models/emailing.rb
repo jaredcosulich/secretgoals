@@ -4,6 +4,8 @@ class Emailing < ActiveRecord::Base
   belongs_to :user
   has_many :links, :as => "source"
 
+  serialize :params
+
   def name
     "Email: #{email_name}"
   end
@@ -15,8 +17,13 @@ class Emailing < ActiveRecord::Base
   end
 
   def self.deliver(email_name, user_id, *params)
-    emailing = Emailing.create(:user_id => user_id, :email_name => email_name)
+    emailing = Emailing.create(:user_id => user_id, :email_name => email_name, :params => params)
     email = Mailer.send(email_name, user_id, emailing, *params).deliver
     emailing.update_attribute(:body, email.body)
+  end
+
+  def redeliver
+    Mailer.send(email_name, user_id, self, *params).deliver
+    touch
   end
 end

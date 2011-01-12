@@ -4,7 +4,7 @@ class Mailer < ActionMailer::Base
 
   ADMIN_EMAILS = ["adam@secretgoals.com", "jared@secretgoals.com"]
   default_url_options[:host] = Rails.application.host
-  default :from => "Secret Goals <support@secretgoals.com>", :bcc => "emails@secretgoals.com", :host => Rails.application.host
+  default :from => "Secret Goals <support@secretgoals.com>", :bcc => "emails@secretgoals.com", :host => Rails.application.host, :headers => {'X-SMTPAPI' => '{"category": "SecretGoals"}'}
 
   def update_reminder(user_id, emailing, user_goal_id)
     @user = User.find(user_id)
