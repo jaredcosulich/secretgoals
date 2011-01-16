@@ -39,3 +39,7 @@
 
 .main
   = render "updates/stream"
+
+- if @updates.present?
+  .sidebar
+    = render "ads/wide_skyscraper"

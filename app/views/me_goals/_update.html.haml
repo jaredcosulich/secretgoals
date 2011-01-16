@@ -36,6 +36,6 @@
 
     function updateStatusFromSlider(e) {
       var jThis = $(this);
-      $("#update_status").html(jThis.val())
+      jThis.closest('form').find("#update_status").html(jThis.val())
     }
   });
