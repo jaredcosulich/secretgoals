@@ -16,8 +16,8 @@ class Update < ActiveRecord::Base
     where("user_goal_id in (select id from user_goals where goal_id in (select goal_id from goal_taggings where tag_id = ?))", tag.id)
   }
 
-  scope :not_mine, lambda {|user_goal|
-    where("user_goal_id != ?", user_goal.id)
+  scope :not_mine, lambda {|user_id|
+    joins(:user_goal).where("user_goals.user_id != ?", user_id)
   }
 
   scope :since, lambda {|date|
