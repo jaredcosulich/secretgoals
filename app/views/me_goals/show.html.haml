@@ -39,7 +39,27 @@
 
 .main
   = render "updates/stream"
-
+  - if @since_update_counts.present?
+    %b
+      %a#update_counts_link.lightbox{:href => "#explore_updates"} Explore updates from other people
+    #explore_updates
+      %p.nice_job
+        Nice job. Now that you've added your update you may want to check out updates from other people:
+      - @since_update_counts.each do |info|
+        - next if info[:count] == 0
+        %p
+          = link_to("#{info[:title]}: #{pluralize(info[:count], "updates")} since your last update >", info[:path])
+      %p= link_to("... or review your own updates >", me_goal_path(@user_goal))
+  
 - if @updates.present?
   .sidebar
     = render "ads/wide_skyscraper"
+
+
+:javascript
+  $(function() {
+    if ($("#update_counts_link") && window.location.toString().indexOf("just_added=") > -1) {
+      $("#update_counts_link").click();
+    }
+  });
+

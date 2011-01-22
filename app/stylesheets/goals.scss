@@ -3,6 +3,22 @@ h2.goal_title {
 }
 
 .me_goals_show {
+  #explore_updates {
+    overflow: hidden;
+    background-color: white;
+    padding: 10px;
+    p {
+     margin-bottom: 0.5em;
+    }
+    .nice_job {
+      display: none;
+    }
+  }
+  #facebox #explore_updates .nice_job {
+    display: block;
+    margin-bottom: 20px;
+  }
+
   #facebox {
     .widget_title, .lightboxed_goal_title {
       font-weight: bold;
