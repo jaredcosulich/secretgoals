@@ -12,18 +12,18 @@ class MeGoalsController < ApplicationController
     if @updates.length > 1
       @since_update_counts = [{
         :title => "This goal",
-        :count => @goal.updates.where("user_goal_id != ?", @user_goal.id).where("updates.created_at > ?", @updates[1].created_at).count,
+        :count => @goal.updates.not_mine(@user_goal.id).since(@updates[1].created_at).count,
         :path => goal_path(@goal)
       }]
 
       @goal.tags.each do |tag|
-        tag_count = Update.for_tag(tag).where("created_at > ?", @updates[1].created_at).count
+        tag_count = Update.for_tag(tag).not_mine(@user_goal.id).since(@updates[1].created_at).count
         @since_update_counts << {:title => "Tagged '#{tag.title}'", :count => tag_count, :path => tag_path(tag)}
       end
 
       @since_update_counts << {
         :title => "All goals",
-        :count => Update.where("created_at > ?", @updates[1].created_at).count,
+        :count => Update.not_mine(@user_goal.id).since(@updates[1].created_at).count,
         :path => root_path
       }
     end
