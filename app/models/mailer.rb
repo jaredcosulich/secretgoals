@@ -2,7 +2,7 @@ class Mailer < ActionMailer::Base
 
   helper ApplicationHelper
 
-  ADMIN_EMAILS = ["adam@secretgoals.com", "jared@secretgoals.com"]
+  ADMIN_EMAILS = ["jared@secretgoals.com"]
   default_url_options[:host] = Rails.application.host
   default :from => "Secret Goals <support@secretgoals.com>", :bcc => "emails@secretgoals.com", :host => Rails.application.host, :headers => {'X-SMTPAPI' => '{"category": "SecretGoals"}'}
 
