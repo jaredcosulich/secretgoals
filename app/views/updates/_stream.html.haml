@@ -16,4 +16,8 @@
         lightbox.find("#reply_reply_type").val($(this).attr('data-reply_type'));
         lightbox.find(".reply_type").html($(this).attr('data-prompt'));
       })
+
+      if (window.location.hash.length > 0) {
+        $.facebox("<p>Thank You</p><p>Your message has been sent.</p>");
+      }
     })
