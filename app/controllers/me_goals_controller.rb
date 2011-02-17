@@ -8,7 +8,8 @@ class MeGoalsController < ApplicationController
 
   def show
     @goal = @user_goal.goal
-    @updates = @user_goal.updates
+    @page = (params[:page] || 0).to_i
+    @updates = @user_goal.updates(10, @page)
     if @updates.length > 1
       @since_update_counts = [{
         :title => "This goal",
