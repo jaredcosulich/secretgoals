@@ -1,4 +1,4 @@
-- if @paging.present?
+- if @page.present?
   .paging
     - if @updates.length == 10
       = link_to("Next Page >", params.merge(:page => @page + 1), :style => "float: right;")
