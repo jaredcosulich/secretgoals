@@ -2,6 +2,8 @@ class Update < ActiveRecord::Base
   belongs_to :user_goal
   has_many :replies
 
+  delegate :user, :to => :user_goal
+
   default_scope order("updates.created_at desc")
   scope :latest, lambda { |limit| full.with_comment.limit(limit) }
 

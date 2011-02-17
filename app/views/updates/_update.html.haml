@@ -21,7 +21,7 @@
       %a.lightbox.reply_action{:href => "#reply_form", :data => {:reply_type => "support", :prompt => "Send this person a message of support:"}}= "#{image_tag("support.png")} support".html_safe
       %a.lightbox.reply_action{:href => "#reply_form", :data => {:reply_type => "congratulation", :prompt => "Congratulate this person on their progress:"}}= "#{image_tag("congratulation.png")} congratulate".html_safe
 
-- if update.replies.present?
+- if (@update.present? || update.user == @current_user) && update.replies.present?
   %tr
     %td.replies{:colspan => 2}
       - if @update.present?
