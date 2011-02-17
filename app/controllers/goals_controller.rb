@@ -19,7 +19,8 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @updates = @goal.updates.latest(10)
+    @page = (params[:page] || 0).to_i
+    @updates = @goal.updates.latest(10, @page)
     if @updates.empty?
       @goals = Goal.most_updated
     end

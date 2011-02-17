@@ -5,7 +5,7 @@ class Update < ActiveRecord::Base
   delegate :user, :to => :user_goal
 
   default_scope order("updates.created_at desc")
-  scope :latest, lambda { |limit| full.with_comment.limit(limit) }
+  scope :latest, lambda { |limit, page| full.with_comment.limit(limit).offset(page * limit) }
 
   scope :full, includes([{:user_goal => {:goal => :tags}}, :replies])
   scope :with_comment, where("updates.comment is not null and updates.comment != ''")

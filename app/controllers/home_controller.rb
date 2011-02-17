@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   def index
     @goals = Goal.most_updated
-    @updates = Update.latest(10)
+    @page = (params[:page] || 0).to_i
+    @updates = Update.latest(10, @page)
     @tags = Tag.most_updated
   end
 
