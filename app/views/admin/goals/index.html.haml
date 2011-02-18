@@ -4,6 +4,7 @@
   == .tags { overflow: hidden; margin-bottom: 12px; }
   == .tag { display: block; float: left; padding: 6px 12px; margin: 0 12px 24px 0; background-color: #eee; }
   == form input.goal_tagging { width: 10em; }
+  == .stats { float: right; width: 300px; }
 
 :javascript
   $(function() {
@@ -31,4 +32,14 @@
 %br
 %br
 
+.stats
+  %h4 Goal Stats
+  - @goal_stats.each do |info|
+    %p= "#{info.keys.first}: #{info.values.first}"
+
+  %h4 Update Stats
+  - @update_stats.each do |info|
+    %p= "#{info.keys.first}: #{info.values.first}"
+
+%h4 Goals
 = render @goals
