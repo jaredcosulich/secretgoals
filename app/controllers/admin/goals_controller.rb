@@ -15,4 +15,10 @@ class Admin::GoalsController < ApplicationController
     flash[:notice] = "Added #{goal.reload.tags.map(&:permalink).join(", ")} to #{goal.title}"
     redirect_to admin_goals_path
   end
+
+  def create_tag
+    tag = Tag.create(params[:tag]) if params[:tag][:title].present?
+    flash[:notice] = "Tag #{tag.permalink} created."
+    redirect_to admin_goals_path
+  end
 end

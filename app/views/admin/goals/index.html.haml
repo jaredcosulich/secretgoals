@@ -22,6 +22,11 @@
 
 = render :partial => "assign_tags" if @untagged_goal.present?
 
+%h4 Create Tag
+= form_for :tag, :url => create_tag_admin_goals_path do |f|
+  = f.label :title
+  = f.text_field :title
+  = f.submit "Create Tag"
 %br
 %br
 %br

@@ -35,6 +35,7 @@ Secretgoals::Application.routes.draw do
     resources :emails
     resources :goals do
       member {put :assign_tags}
+      collection {post :create_tag}
     end
   end
 
