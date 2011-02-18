@@ -1,0 +1,29 @@
+%style
+  == .goal { margin-bottom: 12px; }
+  == .no_tags { color: red; }
+  == .tags { overflow: hidden; margin-bottom: 12px; }
+  == .tag { display: block; float: left; padding: 6px 12px; margin: 0 12px 24px 0; background-color: #eee; }
+  == form input.goal_tagging { width: 10em; }
+
+:javascript
+  $(function() {
+    $(".tag").click(function() {
+      var tag = $(this);
+      var tagSlots = $(".goal_tagging");
+      var tagSet = false;
+      tagSlots.each(function() {
+        if (!tagSet && this.value == '') {
+          this.value = tag.html();
+          tagSet = true;
+        }
+      })
+    })
+  })
+
+= render :partial => "assign_tags" if @untagged_goal.present?
+
+%br
+%br
+%br
+
+= render @goals

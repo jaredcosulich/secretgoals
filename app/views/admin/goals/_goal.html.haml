@@ -1,0 +1,5 @@
+.goal{:class => goal.tags.empty? ? "no_tags" : ""}
+  = goal.title
+  %ul
+    - goal.tags.each do |tag|
+      %li= tag.title

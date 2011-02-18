@@ -1,0 +1,11 @@
+= form_for @untagged_goal, :url => assign_tags_admin_goal_path(@untagged_goal) do |f|
+  %h4= @untagged_goal.title
+
+  %p
+    - 5.times do
+      = text_field_tag("goal[goal_tagging][]", "", :class => "goal_tagging")
+    = submit_tag("Save Tags")
+    
+  .tags
+    - @tags.each do |tag|
+      %a.tag{:href => "javascript: void(0);"}= tag.permalink

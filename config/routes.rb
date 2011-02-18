@@ -33,6 +33,9 @@ Secretgoals::Application.routes.draw do
     root :to => "admin#index"
     resources :blueprints
     resources :emails
+    resources :goals do
+      member {put :assign_tags}
+    end
   end
 
   # The priority is based upon order of creation:
