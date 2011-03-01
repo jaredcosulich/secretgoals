@@ -49,8 +49,7 @@
         - next if info[:count] == 0
         %p
           = link_to("#{info[:title]}: #{pluralize(info[:count], "updates")} since your last update >", info[:path])
-      %p= link_to("... or review your own updates >", me_goal_path(@user_goal))
-  
+
 - if @updates.present?
   .sidebar
     = render "ads/wide_skyscraper"
