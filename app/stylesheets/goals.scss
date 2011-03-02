@@ -135,7 +135,7 @@ table.update_stream {
   border-top: 1px solid $grey;
   border-right: 1px solid $grey;
   .update {
-    background-color: $update_grey;
+    background: $update_grey url("/images/update_background.gif");
     margin-bottom: 10px;
 
     .goal_label {
