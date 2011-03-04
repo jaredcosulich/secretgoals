@@ -8,7 +8,7 @@ class GoalsController < ApplicationController
   end
 
   def go
-    if goal = Goal.find_by_title(params[:title])
+    if goal = Goal.find_by_permalink(PermalinkFu.escape(params[:title]))
       redirect_to goal_path(goal)
     else
       @goals = Goal.most_updated
