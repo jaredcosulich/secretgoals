@@ -22,4 +22,11 @@ class Goal < ActiveRecord::Base
     results = connection.select_all(goal_sql)
     results.each_with_index { |r, i| r["bucket"] = i/(limit/bucket_count) }
   end
+
+  def combine_goal(goal_id)
+    goal = Goal.find(goal_id)
+    goal.user_goals.each { |ug| ug.update_attributes(:goal_id => id) }
+    goal.goal_taggings.map(&:destroy)
+    goal.destroy
+  end
 end
