@@ -34,9 +34,9 @@ Secretgoals::Application.configure do
   config.active_support.deprecation = :stderr
 
   module ::Enumerable
-      def only
-        raise "expected exactly one item but there were #{size}" unless size == 1
-        first
-      end
+    def only
+      raise "expected exactly one item but there were #{size}" unless size == 1
+      first
     end
   end
+end
