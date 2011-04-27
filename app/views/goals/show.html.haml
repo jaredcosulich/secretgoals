@@ -25,9 +25,10 @@
     %a#add.big_blue{:href=> "javascript:void()"} Take on this goal!
 
 .clear
-  
-.left_sidebar
-  = render "shared/tag_nav"
+
+- unless @no_left_sidebar
+  .left_sidebar
+    = render "shared/tag_nav"
 
 .main
   - if @updates.present?
@@ -36,6 +37,9 @@
     = render "goals/register"
   = render "shared/popular_footer"  
 
+- if @no_left_sidebar
+  .left_sidebar
+    &nbsp;
 
 .sidebar
   - if @updates.present?
