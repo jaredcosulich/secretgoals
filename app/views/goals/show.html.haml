@@ -7,6 +7,7 @@
 
 = render "shared/tagline"
 
+
 .main
   %h2.goal_title
     %span.lighten the goal:
@@ -16,9 +17,17 @@
       Tags:
       = @goal.tags.collect { |tag| link_to(tag.title, tag_path(tag)) }.join(", ").html_safe
 
+.left_sidebar
+  &nbsp;
+  
 .sidebar
   - if @updates.present?
     %a#add.big_blue{:href=> "javascript:void()"} Take on this goal!
+
+.clear
+  
+.left_sidebar
+  = render "shared/tag_nav"
 
 .main
   - if @updates.present?

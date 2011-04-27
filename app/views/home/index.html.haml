@@ -1,12 +1,14 @@
 = render "shared/tagline"
 
+.left_sidebar
+  = render "shared/tag_nav"
+
 .main
   = render "updates/stream"
   = render "shared/popular_footer"
 
 .sidebar
   = render "shared/update_counts", :subject => nil, :subject_name => "their goals"
-  = render "shared/tag_cloud"
   = render "shared/goal_cloud"
   = render "shared/about"
 

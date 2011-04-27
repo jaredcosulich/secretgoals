@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     @goals = Goal.most_updated
     @page = (params[:page] || 0).to_i
     @updates = Update.latest(10, @page)
-    @tags = Tag.most_updated
+    @tags = Tag.alphabetic
   end
 
   def feedback

@@ -6,6 +6,9 @@
 
 = render "shared/tagline"
 
+.left_sidebar
+  = render "shared/tag_nav"
+
 .main
   - if @updates.present?
     = render "updates/stream"
@@ -18,5 +21,4 @@
 .sidebar
   = render "shared/update_counts", :subject => @tag, :subject_name => "goals with this tag"
   = render "ads/wide_skyscraper"
-  = render "shared/tag_cloud"
   = render "shared/about"

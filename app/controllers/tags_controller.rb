@@ -9,7 +9,7 @@ class TagsController < ApplicationController
     @page = (params[:page] || 0).to_i
     @updates = @tag.updates.latest(10, @page)
     @goals = @tag.goals
-    @tags = Tag.most_updated
+    @tags = Tag.alphabetic
   end
 
 end

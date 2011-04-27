@@ -136,12 +136,26 @@ form {
 
 
 .main {
-  @include column(15);
-  @include append(1)
+  @include column(14);
+  @include append(0.5);
+}
+
+.left_sidebar {
+  @include column(3);
+  @include append(0.5);
+  #tag_nav {
+    h5 {
+      margin-bottom: 0;
+    }
+    a {
+      display: block;
+      padding-top: 6px;    
+    }
+  }
 }
 
 .sidebar {
-  @include column(8, true);
+  @include column(6, true);
 }
 
 .close_header {
@@ -255,6 +269,7 @@ input.big_blue {
 
 .skyscraper {
   text-align: center;
+  margin-bottom: 12px;
 }
 
 

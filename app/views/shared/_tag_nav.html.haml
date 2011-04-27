@@ -1,0 +1,4 @@
+#tag_nav
+  %h5 Tags
+  - @tags.each do |tag|
+    = link_to(tag.title, tag_path(tag))

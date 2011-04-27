@@ -24,7 +24,7 @@ class GoalsController < ApplicationController
     if @updates.empty?
       @goals = Goal.most_updated
     end
-    @tags = Tag.most_updated
+    @tags = Tag.alphabetic
   end
 
   protected
