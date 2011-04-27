@@ -4,7 +4,7 @@ class Tag < ActiveRecord::Base
   has_many :goal_taggings
   has_many :goals, :through => :goal_taggings
 
-  scope :alphabetic, order("title asc")
+  scope :alphabetic, where("title != 'spam'").order("title asc")
 
   def updates
     Update.for_tag(self)
