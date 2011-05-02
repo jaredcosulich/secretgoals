@@ -13,8 +13,9 @@
 
     .comment
       = simple_format(auto_link(update.comment))
-    .timestamp
-      = link_to "#{time_ago_in_words(update.created_at)} ago", update_path(update)
+    -#
+      .timestamp
+        = link_to "#{time_ago_in_words(update.created_at)} ago", update_path(update)
 
     .reply_actions{:data => {:add_update_url => add_reply_update_path(update), :update_comment => truncate(update.comment, :length => 200)}}
       %a.lightbox.reply_action{:href => "#reply_form", :data => {:reply_type => "reply", :prompt => "Send this person a reply to their progress update:"}}= "#{image_tag("reply.png")} reply".html_safe
