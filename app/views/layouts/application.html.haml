@@ -150,3 +150,19 @@
         .live("ajax:complete", function(xhr){ $("#facebox .email_us .sending").hide(); })
         .live("ajax:success",  function(data, status, xhr){$("#facebox .email_us .success").show(); })
         .live("ajax:failure",  function(xhr, status, error){$("#facebox .email_us .failure").show(); });
+
+    - if current_user.present?
+      <!-- Begin Survey.io code for secretgoals.com -->
+      <script src="http://cdn.survey.io/embed/1.0/survey.js" type="text/javascript"></script>
+      <script type="text/javascript" charset="utf-8">
+      Surveyio.init({
+      survey_id: "18855",
+      token: "c6c15a990c6696594a4c84980eb03ec2c858dbd8",
+      banner: {
+      x: "right",
+      y: "top",
+      color: "orange"
+      }
+      });
+      </script>
+      <!-- /End Survey.io code -->
