@@ -151,7 +151,7 @@
         .live("ajax:success",  function(data, status, xhr){$("#facebox .email_us .success").show(); })
         .live("ajax:failure",  function(xhr, status, error){$("#facebox .email_us .failure").show(); });
 
-    - if current_user.present?
+    - if false && current_user.present?
       <!-- Begin Survey.io code for secretgoals.com -->
       <script src="http://cdn.survey.io/embed/1.0/survey.js" type="text/javascript"></script>
       <script type="text/javascript" charset="utf-8">
