@@ -4,7 +4,7 @@ class Update < ActiveRecord::Base
 
   delegate :user, :to => :user_goal
 
-  default_scope order("updates.created_at desc")
+  default_scope where("status is not null").order("updates.created_at desc")
   scope :latest, lambda { |limit, page| full.with_comment.limit(limit).offset(page * limit) }
 
   scope :full, includes([{:user_goal => {:goal => :tags}}, :replies])
@@ -33,6 +33,7 @@ class Update < ActiveRecord::Base
   end
 
   def status_text
+    return "" if status.nil?
     case
       when status < 4: "Needs Support"
       when status > 6: "Feeling Good"
@@ -41,6 +42,7 @@ class Update < ActiveRecord::Base
   end
 
   def status_class
+    return "" if status.nil?
     text = case
       when status < 4: "bad"
       when status > 6: "good"
